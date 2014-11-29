@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>
+        {% block title %}
+        Michael Washburn Jr
+        {% endblock title %}
+    </title>
+    {% block description %}
+        <meta name="description" content="Michael Washburn Jr"/>
+        <meta name="keywords" content="Micael Washburn Jr Greene New York Software Engineer RIT Web Design Graphic Design Developer"/>
+    {% endblock description %}
+    {% block main_tags %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--bootstrap-->
+        <link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/sh/w50g5b1f43k0m1e/gMDLRlUK59/css/bootstrap.min.css?dl=1&token_hash=AAEsMpEuhBZ05iUQ8vB8lCVEJCbdx7EpaNo7iVwYLJ9X_A">
+        <!--bootstrap-theme-->
+        <link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/sh/w50g5b1f43k0m1e/Tu6TaW7Gdm/css/bootstrap-theme.min.css?dl=1&token_hash=AAEsMpEuhBZ05iUQ8vB8lCVEJCbdx7EpaNo7iVwYLJ9X_A">
+        <!--Additional CSS-->
+        <link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/sh/w50g5b1f43k0m1e/frSny0I_68/css/additional.css?dl=1&token_hash=AAEsMpEuhBZ05iUQ8vB8lCVEJCbdx7EpaNo7iVwYLJ9X_A">
+        <!--Favicon-->
+        <link rel="shortcut icon" href="https://dl.dropboxusercontent.com/sh/w50g5b1f43k0m1e/vtiDVYz2IL/images/favicon.ico?dl=1&token_hash=AAEsMpEuhBZ05iUQ8vB8lCVEJCbdx7EpaNo7iVwYLJ9X_A" type="image/x-icon">
+        <link rel="icon" href="https://dl.dropboxusercontent.com/sh/w50g5b1f43k0m1e/vtiDVYz2IL/images/favicon.ico?dl=1&token_hash=AAEsMpEuhBZ05iUQ8vB8lCVEJCbdx7EpaNo7iVwYLJ9X_A" type="image/x-icon">
+    {% endblock main_tags %}
+    {% block extra_tags %}
+    {% endblock extra_tags %}
+</head>
+
+{% block navbar %}
+<nav class="navbar navbar-default navbar-primary navbar-fixed-top" role="navigation">
+
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="{% url 'mysite:index' %}">Home</a>
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+                <li><a href="{% url 'mysite:resume' %}">Résumé</a></li>
+                <li><a href="{% url 'mysite:projects' %}">Projects</a></li>
+                <!--<li><a href="/Services">Services</a></li>-->
+                <li><a href="{% url 'mysite:contact' %}">Contact Me</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock navbar %}
+
+<body id="{% block page_id %}{% endblock page_id %}">
+
+
+    <div class="container">
+
+        {% block content %}
+        {% endblock content %}
+
+    </div>
+ 
+    {% block foot_tags %}
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://dl.dropboxusercontent.com/sh/w50g5b1f43k0m1e/BZPt1yisi-/js/bootstrap.min.js?dl=1&token_hash=AAEsMpEuhBZ05iUQ8vB8lCVEJCbdx7EpaNo7iVwYLJ9X_A"></script>
+    <!--Google Analytics-->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-47122213-2', 'michaelwashburnjr.com');
+      ga('send', 'pageview');
+
+    </script>
+    {% endblock foot_tags %}
+
+</body>
+ 
+</html>

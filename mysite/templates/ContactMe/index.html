@@ -1,0 +1,103 @@
+<!--
+File: ContactMe/index.html
+Language: Django Template Language
+
+Author: Michael D Washburn Jr. <mdw7326@rit.edu>
+
+Description: A page to provide contact information for myself
+-->
+
+{% extends 'base.html' %}
+
+{% block title %}
+Contact Me
+{% endblock title %}
+
+{% block description %}
+    <meta name="description" content="Michael Washburn Jr, Contact Information"/>
+    <meta name="keywords" content="Michael Washburn Jr Contact Me Information Email Phone Facebook LinkedIn"/>
+{% endblock description %}
+
+{% block extra_tags %}
+{% endblock extra_tags %}
+
+{% block page_id %}contact{% endblock page_id %}
+
+{% block content %}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+
+        <h3 class="panel-title">Contact Methods:</h3>
+
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+
+            <tr>
+                <td class="contact-method">Email:</td>
+                <td><a href="mailto:mdw7326@rit.edu">mdw7326@rit.edu</a></td>
+            </tr>
+
+                <tr>
+                    <td class="contact-method">LinkedIn:</td>
+                    <td>
+                        <a href="http://www.linkedin.com/pub/michael-washburn-jr/78/453/a06">
+                          
+                            <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_myprofile_160x33.png" width="160" height="33" border="0" alt="View Michael Washburn Jr's profile on LinkedIn">
+                            
+                        </a>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="contact-method">Facebook:</td>
+                <td>
+                    <div class="badge-large">
+                        <!-- Facebook Badge START --><a href="https://www.facebook.com/michael.washburnjr" target="_TOP" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" title="Michael Washburn Jr">Michael Washburn Jr</a><span style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; line-height: 16px; font-variant: normal; font-style: normal; font-weight: normal; color: #555555; text-decoration: none;">&nbsp;|&nbsp;</span><a href="https://www.facebook.com/badges/" target="_TOP" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" title="Make your own badge!">Create Your Badge</a><br/><a href="https://www.facebook.com/michael.washburnjr" target="_TOP" title="Michael Washburn Jr"><img src="https://badge.facebook.com/badge/1825930270.2352.617758974.png" style="border: 0px;" /></a><!-- Facebook Badge END -->
+                    </div>
+                    <div class="badge-small">
+                        <!-- Facebook Badge START --><a href="https://www.facebook.com/michael.washburnjr" target="_TOP" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" title="Michael Washburn Jr">Michael Washburn Jr</a><br/><a href="https://www.facebook.com/michael.washburnjr" target="_TOP" title="Michael Washburn Jr"><img src="https://badge.facebook.com/badge/1825930270.3163.2039350056.png" style="border: 0px;" /></a><br/><a href="https://www.facebook.com/badges/" target="_TOP" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" title="Make your own badge!">Create Your Badge</a><!-- Facebook Badge END -->
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="contact-method">Google+:</td>
+                <td>
+                    <div class="badge-large">
+                        <!-- Place this tag where you want the widget to render. -->
+                        <div class="g-person" data-href="//plus.google.com/u/0/116038274590759263782" data-rel="author"></div>
+
+                        <!-- Place this tag after the last widget tag. -->
+                        <script type="text/javascript">
+                          (function() {
+                            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                            po.src = 'https://apis.google.com/js/platform.js';
+                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                          })();
+                        </script>
+                    </div>
+                    <div class="badge-small">
+                        <!-- Place this tag where you want the widget to render. -->
+                        <div class="g-person" data-width="180" data-href="//plus.google.com/u/0/116038274590759263782" data-rel="author"></div>
+
+                        <!-- Place this tag after the last widget tag. -->
+                        <script type="text/javascript">
+                          (function() {
+                            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                            po.src = 'https://apis.google.com/js/platform.js';
+                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                          })();
+                        </script>
+                    </div>
+                </td>
+            </tr>
+
+
+        </table>
+    </div>
+</div>
+
+{% endblock content %}

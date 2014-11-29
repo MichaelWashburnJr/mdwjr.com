@@ -1,0 +1,43 @@
+<!--
+File: Resume/index.html
+Language: Django Template Language
+
+Author: Michael D Washburn Jr. <mdw7326@rit.edu>
+
+Description: A Page for my resume.
+-->
+
+{% extends 'base.html' %}
+
+{% block title %}
+Michael Washburn Jr's Resume
+{% endblock title %}
+
+{% block description %}
+    <meta name="description" content="My Resume"/>
+    <meta name="keywords" content="Michael Washburn Jr Resume"/>
+{% endblock description %}
+
+{% block extra_tags %}
+{% endblock extra_tags %}
+
+{% block page_id %}resume{% endblock page_id %}
+
+{% block content %}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+
+        <h3 class="panel-title">My Résumé</h3>
+
+    </div>
+    <div class="panel-body">
+
+        <object data="{{ MEDIA_URL }}resume.pdf" type="application/pdf" width="100%" height="1068px;">
+        </object>
+        Download the pdf <a href="{{ MEDIA_URL }}resume.pdf">here</a>.
+
+    </div>
+</div>
+
+{% endblock content %}
