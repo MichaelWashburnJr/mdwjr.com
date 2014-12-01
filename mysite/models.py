@@ -25,6 +25,7 @@ Link entry for a Project.
 class ProjectLink(models.Model):
 	project = models.ForeignKey(Project, related_name="ProjectLinks");
 	url = models.CharField(max_length=200);
+	text = models.CharField(max_length=80);
 
 	def __str__(self):
 		return self.pFile.url;
@@ -36,6 +37,7 @@ File entry for a Project.
 class ProjectFile(models.Model):
 	project = models.ForeignKey(Project, related_name="ProjectFiles");
 	pFile = models.FileField("File",upload_to=GetUploadSubPath);
+	text = models.CharField(max_length=80);
 
 	def __str__(self):
 		return self.pFile.url;

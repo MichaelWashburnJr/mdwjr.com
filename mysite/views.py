@@ -33,9 +33,13 @@ fashion.
 """
 def project(request, project_id):
 	project = get_object_or_404(Project, pk=project_id);
+	links = project.ProjectLinks.objects.all();
+	files = project.ProjectFiles.objects.all();
 	context = {
 		'request' : request,
-		'project' : project
+		'project' : project,
+		'links' : links,
+		'files' : files
 	}
 	return render(request, 'Project/info/index.html', context);
 

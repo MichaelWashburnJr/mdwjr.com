@@ -25,6 +25,20 @@ Title
 
 {% block content %}
 
-{{project.id}}
+<a href="{% url 'mysite:projects' %}">Back to Projects</a>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+
+        <h1>{{project.title}}<sub>{{Project.date_posted}}</sub></h1>
+
+    </div>
+
+    <div class="project-body">
+        <h3>Description:</h3>
+        <p>{{project.description}}</p>
+    </div>
+
+</div>
 
 {% endblock content %}
