@@ -27,16 +27,13 @@ Title
 
 <a href="{% url 'mysite:projects' %}">Back to Projects</a>
 
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h2>{{project.title}}</h2>
-        <div >{{project.date_posted}}</div>
-    </div>
-    <div class="panel-body">
-        <h3>Description:</h3>
-        {{project.description}}
-    </div>
-
+<div>
+    <h3 text-align="left" float="left">
+        {{project.title}}
+    </h3>
+    <h5 text-align="right" float="right">
+        {{project.date_posted}}
+    </h5>
 </div>
 
 {% endblock content %}
