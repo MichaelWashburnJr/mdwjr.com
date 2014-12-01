@@ -33,8 +33,8 @@ fashion.
 """
 def project(request, project_id):
 	project = get_object_or_404(Project, pk=project_id);
-	links = project.ProjectLinks.objects.all();
-	files = project.ProjectFiles.objects.all();
+	links = project.ProjectLinks.all();
+	files = project.ProjectFiles.all();
 	context = {
 		'request' : request,
 		'project' : project,
