@@ -34,7 +34,11 @@ Projects
 
     <ul class="list-group">
         {% for project in projects %}
-        <li class="list-group-item">{{ project.title }}</li>
+        <li class="list-group-item">
+            <a href="{% url 'mysite:project' project.id %}">
+                {{ project.title }}
+            </a>
+        </li>
         {% endfor %}
     </ul>
 </div>

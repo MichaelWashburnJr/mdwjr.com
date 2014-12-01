@@ -1,4 +1,13 @@
-from django.shortcuts import render
+"""
+File:		mysite/views.py
+Language: Python 2 with Django 1.6 Web Framework
+
+Author: Michael D Washburn Jr <mdw7326@rit.edu>
+
+Description: Views definitions for my personal site.
+"""
+
+from django.shortcuts import render, get_object_or_404
 from models import Project
 
 ###############################################################################
@@ -22,7 +31,13 @@ def contact(request):
 A view for a single project which displays all project data in an organized
 fashion.
 """
-#def project(request):
+def project(request, project_id):
+	project = get_object_or_404(Project, pk=project_id);
+	context = {
+		'request' : request,
+		'project' : project
+	}
+	return render(request, 'Project/info/index.html', context);
 
 
 """
@@ -34,4 +49,4 @@ def projects(request):
 		'request' : request,
 		'projects' : projects
 	}
-	return render(request, 'Projects/index.html', context);
+	return render(request, 'Project/index.html', context);

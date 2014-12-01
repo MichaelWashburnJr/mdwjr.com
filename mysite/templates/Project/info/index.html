@@ -1,0 +1,30 @@
+<!--
+File: Project/info/index.html
+Language: Django Template Language
+
+Author: Michael D Washburn Jr. <mdw7326@rit.edu>
+
+Description: Displays information for a specific project.
+-->
+
+{% extends 'base.html' %}
+
+{% block title %}
+Title
+{% endblock title %}
+
+{% block description %}
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+{% endblock description %}
+
+{% block extra_tags %}
+{% endblock extra_tags %}
+
+{% block page_id %}project{% endblock page_id %}
+
+{% block content %}
+
+{{project.id}}
+
+{% endblock content %}
