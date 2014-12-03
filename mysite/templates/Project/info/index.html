@@ -55,7 +55,7 @@ Title
             <ul class="list-group">
                 {% for link in links %}
                     <li class="list-group-item">
-                        <a href="{{link.url}}">{{link.text}}</a>
+                        <a href="{{link.url}}">{{link.display}}</a>
                     </li>
                 {% endfor %}
             </ul>
@@ -68,7 +68,7 @@ Title
             <ul class="list-group">
                 {% for file in files %}
                     <li class="list-group-item">
-                        <a href="{{file.GetUrl}}">{{file.text}}</a>
+                        <a href="{{file.GetUrl}}">{{file.display}}</a>
                     </li>
                 {% endfor %}
             </ul>
