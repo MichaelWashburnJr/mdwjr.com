@@ -28,7 +28,7 @@ class ProjectLink(models.Model):
     url = models.CharField(max_length=200);
 
     def __str__(self):
-        return self.pFile.url;
+        return self.display
 
 
 """
@@ -40,7 +40,7 @@ class ProjectFile(models.Model):
     pFile = models.FileField("File",upload_to=GetUploadSubPath);
 
     def __str__(self):
-        return self.pFile.url;
+        return self.display;
 
     def GetUrl(self):
         bad_url = self.pFile.url;
