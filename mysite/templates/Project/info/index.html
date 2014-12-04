@@ -52,7 +52,7 @@ Description: Displays information for a specific project.
             <ul class="list-group">
                 {% for link in links %}
                     <li class="list-group-item">
-                        <a href="{{link.url}}">{{link.display}}</a>
+                        <a href="{{link.url}}" target="_blank">{{link.display}}</a>
                     </li>
                 {% endfor %}
             </ul>
@@ -65,7 +65,7 @@ Description: Displays information for a specific project.
             <ul class="list-group">
                 {% for file in files %}
                     <li class="list-group-item">
-                        <a href="{{file.GetUrl}}">{{file.display}}</a>
+                        <a href="{{file.GetUrl}}" target="_blank">{{file.display}}</a>
                     </li>
                 {% endfor %}
             </ul>
