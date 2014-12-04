@@ -43,6 +43,6 @@ class ProjectFile(models.Model):
         return self.display;
 
     def GetUrl(self):
-        bad_url = "media/django_project/mysite/media/"
+        bad_url = "media/django_project/mysite/"
         url = self.pFile.url.replace(bad_url, "");
         return url;
