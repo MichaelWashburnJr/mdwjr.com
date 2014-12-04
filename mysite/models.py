@@ -43,16 +43,6 @@ class ProjectFile(models.Model):
         return self.display;
 
     def GetUrl(self):
-        bad_url = self.pFile.url.split('/');
-        url = "";
-        index = 0;
-        for i in range(1,len(bad_url)+1):
-            if(bad_url[len(bad_url) - i] == "media"):
-                index = len(bad_url) - i + 1;
-                break;
-        url  = '/'.join(bad_url[index:]);
-
-        #url = bad_url[0:bad_url.find("/mysite")];
-        #bad_url = bad_url[bad_url.find("/mysite"):];
-        #url += bad_url[bad_url.find("/mysite"):];
+        bad_url = "media/django_project/mysite/media/"
+        url = self.pFile.url.replace(bad_url, "");
         return url;
