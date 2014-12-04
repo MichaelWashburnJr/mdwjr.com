@@ -44,5 +44,7 @@ class ProjectFile(models.Model):
 
     def GetUrl(self):
         bad_url = self.pFile.url;
-        url = bad_url[bad_url.find("/mysite/media"):];
+        url = bad_url[0:bad_url.find("/mysite")];
+        bad_url = bad_url[bad_url.find("/mysite"):];
+        url += bad_url[bad_url.find("/mysite"):];
         return url;
