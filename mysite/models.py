@@ -48,7 +48,7 @@ class ProjectFile(models.Model):
         index = 0;
         for i in range(1,len(bad_url)+1):
             if(bad_url[len(bad_url) - i] == "media"):
-                index = len(bad_url) - i + 1];
+                index = len(bad_url) - i + 1;
                 break;
         url  = '/'.join(bad_url[index:]);
 
