@@ -10,12 +10,12 @@ Description: Displays information for a specific project.
 {% extends 'base.html' %}
 
 {% block title %}
-Title
+{{project.title}}
 {% endblock title %}
 
 {% block description %}
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
+    <meta name="description" content="{{project.description}}"/>
+    <meta name="keywords" content="{{project.title}}"/>
 {% endblock description %}
 
 {% block extra_tags %}
@@ -29,14 +29,16 @@ Title
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h1 style="margin-top: 0px;margin-bottom: 0px;">{{project.title}}</h1>
-        Date Posted: {{project.date_posted}}
+        <h3 class="panel-title">{{project.title}}</h3>
+        <div class="panel-sub-title">
+            Date Posted: {{project.date_posted}}
+        </div>
     </div>
 
     <div class="panel-body">
         <div class="panel">
             <div class="panel-heading">
-                <h5 class="panel-title">Description</h5>
+                <h5 class="panel-title-sm">Description:</h5>
             </div>
             <div class="panel-body">
                 {{project.description}}
@@ -45,7 +47,7 @@ Title
 
         <div class="panel">
             <div class="panel-heading">
-                <h5 class="panel-title">Links:</h5>
+                <h5 class="panel-title-sm">Links:</h5>
             </div>
             <ul class="list-group">
                 {% for link in links %}
@@ -58,7 +60,7 @@ Title
 
         <div class="panel">
             <div class="panel-heading">
-                <h5 class="panel-title">Files:</h5>
+                <h5 class="panel-title-sm">Files:</h5>
             </div>
             <ul class="list-group">
                 {% for file in files %}
