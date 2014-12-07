@@ -14,7 +14,7 @@ description, images, links, and supporting files.
 class Project(models.Model):
     title = models.CharField(max_length=200);
     description = models.TextField();
-    date_posted = models.DateField('Date Posted');
+    last_updated = models.DateField('Last Updated');
 
     def __str__(self):
         return self.title;
