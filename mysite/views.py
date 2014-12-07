@@ -48,7 +48,7 @@ def project(request, project_id):
 A list view of all the projects.
 """
 def projects(request):
-	projects = Project.objects.all();
+	projects = Project.objects.all().order_by("-date_posted");
 	context = {
 		'request' : request,
 		'projects' : projects
