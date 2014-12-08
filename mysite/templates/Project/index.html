@@ -37,7 +37,9 @@ Projects
     		<td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
     			<strong>Project</strong>
     		</td>
-    		<td><strong>Description</strong></td>
+    		<td class="col-lg-6 col-md-6 col-sm-4 col-xs-4">
+    			<strong>Description</strong>
+    		</td>
     		<td class="col-lg-2 col-md-2 col-sm-3 col-xs-3"><strong>Last Updated</strong></td>
     	</tr>
     	{% for project in projects %}
@@ -45,7 +47,9 @@ Projects
     		<td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">	
     			{{project.title}}
     		</td>
-    		<td class="ellipses">{{project.description}}</td>
+    		<td class="ellipses col-lg-6 col-md-6 col-sm-4 col-xs-4">
+    			{{project.description}}
+    		</td>
     		<td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
     			{{project.last_updated}}
     		</td>
