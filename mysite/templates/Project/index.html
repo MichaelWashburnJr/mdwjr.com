@@ -32,7 +32,7 @@ Projects
 
     </div>
 
-    <table class="table">
+    <table class="table table-hover">
     	<tr>
     		<td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
     			<strong>Project</strong>
@@ -43,11 +43,9 @@ Projects
     		<td class="col-lg-2 col-md-2 col-sm-3 col-xs-3"><strong>Last Updated</strong></td>
     	</tr>
     	{% for project in projects %}
-    	<tr>
+    	<tr class="clickableRow" href="{% url 'mysite:project' project.id %}">
     		<td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">	
-    			<a href="{% url 'mysite:project' project.id %}">
-    				{{project.title}}
-    			</a>
+    			{{project.title}}
     		</td>
     		<td class="col-lg-6 col-md-6 col-sm-4 col-xs-4">
     			{{project.GetDescriptionPreview}}
@@ -64,3 +62,11 @@ Projects
 </div>
 
 {% endblock content %}
+
+{% block extra_foot_tags %}
+jQuery(document).ready(function($) {
+      $(".clickableRow").click(function() {
+            window.document.location = $(this).attr("href");
+      });
+});
+{% endblock extra_foot_tags %}
