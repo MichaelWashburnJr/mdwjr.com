@@ -21,7 +21,7 @@ class Project(models.Model):
 
     def GetDescriptionPreview(self):
         cutOff = "...";
-        maxChars = 120;
+        maxChars = 160;
         if len(self.description) >  maxChars - len(cutOff):
             return self.description[0:maxChars-len(cutOff)] + cutOff;
         else:
