@@ -21,10 +21,10 @@ class Project(models.Model):
 
     def GetDescriptionPreview(self):
         cutOff = "...";
-        if len(description) > 240 - len(cutOff):
-            return description[0:240] + cutOff;
+        if len(self.description) > 240 - len(cutOff):
+            return self.description[0:240] + cutOff;
         else:
-            return description;
+            return self.description;
 
 """
 Link entry for a Project.
