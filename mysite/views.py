@@ -18,13 +18,16 @@ from forms import ContactForm
 ###############################################################################
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'index.html');
+
+def success(request):
+	return render(request, 'success.html');
  
 def resume(request):
-    return render(request, 'Resume/index.html')
+    return render(request, 'Resume/index.html');
 
 def contact(request):
-	return render(request, 'ContactMe/index.html')
+	return render(request, 'ContactMe/index.html');
 
 ###############################################################################
 # Dynamic Pages
@@ -41,7 +44,7 @@ def send_email(request):
 			message = form.cleaned_data["message"];
 			sender = form.cleaned_data["sender"];
 			form.send_email();
-			return HttpResponseRedirect(reverse('mysite:contact'));
+			return HttpResponseRedirect(reverse('mysite:success'));
 	else:
 		form = ContactForm();
 	context = {

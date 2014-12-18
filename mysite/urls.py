@@ -17,4 +17,6 @@ urlpatterns = patterns('',
     url(r'^ContactMe/SendEmail$', 'mysite.views.send_email', name='send_email'),
     url(r'^Project/List/$', 'mysite.views.projects', name='projects'),
     url(r'^Project/(?P<project_id>\d+)/info/$', 'mysite.views.project', name='project'),
+
+    url(r'Success/^$', 'mysite.views.success', name='success'),
 )
