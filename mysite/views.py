@@ -8,7 +8,10 @@ Description: Views definitions for my personal site.
 """
 
 from django.shortcuts import render, get_object_or_404
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect, Http404
 from models import Project
+from forms import ContactForm
 
 ###############################################################################
 # Static Pages
@@ -26,6 +29,26 @@ def contact(request):
 ###############################################################################
 # Dynamic Pages
 ###############################################################################
+
+"""
+Sends an email to myself from the user
+"""
+def send_email(request):
+	if request.method == "POST":
+		form = ContactForm(request.POST);
+		if form.is_valid():
+			subject = form.cleaned_data["subject"];
+			message = form.cleaned_data["message"];
+			sender = form.cleaned_data["sender"];
+			form.send_email();
+			return HttpResponseRedirect(reverse('mysite:contact'));
+	else:
+		form = ContactForm();
+	context = {
+		'request' : request,
+		'form' : form
+	}
+	return render(request, 'ContactMe/send_email.html', context)
 
 """
 A view for a single project which displays all project data in an organized
