@@ -10,7 +10,7 @@ class ProjectLinkInline(admin.StackedInline):
 	extra = 1;
 
 class ProjectAdmin(admin.ModelAdmin):
-	fields = ['title', 'description', 'date_posted'];
+	fields = ['title', 'description', 'last_updated'];
 	inlines = [ProjectFileInline, ProjectLinkInline];
 
 admin.site.register(Project, ProjectAdmin);
