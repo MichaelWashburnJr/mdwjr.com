@@ -9,17 +9,18 @@ Description: Contains functions to track and log user data.
 from models import UserRequest
 
 def Log(request):
-	page = request.path;
-	method = request.method;
-	referer = request.META.get('HTTP_REFERER');
-	ip = get_client_ip(request);
+	if not(request.user.is_superuser):
+		page = request.path;
+		method = request.method;
+		referer = request.META.get('HTTP_REFERER');
+		ip = get_client_ip(request);
 
-	log = UserRequest(
-		page=page,
-		method=method,
-		referer=referer,
-		ip=ip);
-	log.save();
+		log = UserRequest(
+			page=page,
+			method=method,
+			referer=referer,
+			ip=ip);
+		log.save();
 
 
 

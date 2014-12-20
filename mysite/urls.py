@@ -14,9 +14,12 @@ urlpatterns = patterns('',
     url(r'^$', 'mysite.views.index', name='index'),
     url(r'^Resume/$', 'mysite.views.resume', name='resume'),
     url(r'^ContactMe/$', 'mysite.views.contact', name='contact'),
-    url(r'^ContactMe/SendEmail$', 'mysite.views.send_email', name='send_email'),
+    url(r'^ContactMe/SendEmail/$', 'mysite.views.send_email', name='send_email'),
     url(r'^Project/List/$', 'mysite.views.projects', name='projects'),
     url(r'^Project/(?P<project_id>\d+)/info/$', 'mysite.views.project', name='project'),
 
     url(r'^Success/$', 'mysite.views.success', name='success'),
+
+    # Admin pages
+   	url(r'^Admin/Tracking/$', 'mysite.views.tracking', name='tracking'),
 )

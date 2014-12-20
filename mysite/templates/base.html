@@ -52,7 +52,9 @@
                 <li><a href="{% url 'mysite:resume' %}">Résumé</a></li>
                 <li><a href="{% url 'mysite:projects' %}">Projects</a></li>
                 <li><a href="{% url 'mysite:contact' %}">Contact Me</a></li>
-
+                {% if user.is_superuser %}
+                    <li><a href="{% url 'mysite:tracking' %}">Tracking</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>

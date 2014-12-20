@@ -7,12 +7,15 @@ Author: Michael D Washburn Jr <mdw7326@rit.edu>
 Description: Views definitions for my personal site.
 """
 
-from django.shortcuts import render, get_object_or_404
-from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect, Http404
-from models import Project
-from forms import ContactForm
+from django.shortcuts import render, get_object_or_404;
+from django.contrib.auth.decorators import login_required;
+from django.core.urlresolvers import reverse;
+from django.http import HttpResponseRedirect, Http404;
+from models import Project, UserRequest;
+from forms import ContactForm;
 import tracking as t;
+from django.db import models;
+import datetime;
 
 ###############################################################################
 # Static Pages
@@ -88,3 +91,52 @@ def projects(request):
         'projects' : projects
     }
     return render(request, 'Project/index.html', context);
+
+###############################################################################
+# Admin Pages
+###############################################################################
+
+"""
+Page for displaying tracking information in a neat manor.
+"""
+@login_required
+def tracking(request):
+    if not(request.user.is_superuser):
+        raise Http404;
+    # Values from Logs #########################################
+    total_num_hits = len(UserRequest.objects.all());
+    #get the number of unique users
+    total_unique_hits = UserRequest.objects.all().values("ip").annotate(n=models.Count("pk"));
+    #get unique visits from today
+    today = datetime.datetime.now().date();
+    today_start = datetime.datetime.combine(today, datetime.time.min);
+    today_end = datetime.datetime.combine(today, datetime.time.max);
+    todays_unique_hits = UserRequest.objects.filter(time__range=(today_start, today_end)).values("ip").annotate(n=models.Count("pk"));
+    #get hit information per page
+    hits_by_page_list = [];
+    pages = UserRequest.objects.all().order_by("page").values("page").annotate(n=models.Count("pk"));
+    for page in pages:
+        #add page path 
+        pageList = [page["page"]];
+        #get all page hits ever
+        totalPageHits = UserRequest.objects.filter(page=page["page"]);
+        pageList.append(len(totalPageHits));
+        #get all unique page hits ever 
+        pageList.append(len(totalPageHits.values("ip").annotate(n=models.Count("pk"))));
+        #get all page hits from today
+        todaysPageHits = totalPageHits.filter(time__range=(today_start, today_end));
+        pageList.append(len(todaysPageHits));
+        #get all unique page hits from today
+        pageList.append(len(todaysPageHits.values("ip").annotate(n=models.Count("pk"))));
+
+        hits_by_page_list.append(pageList);
+
+    #build context and render page
+    context = {
+        'request' : request,
+        'total_num_hits' : total_num_hits,
+        'total_num_unique_hits' : len(total_unique_hits),
+        'todays_unique_hits' : todays_unique_hits,
+        'hits_by_page_list' : hits_by_page_list,
+    }
+    return render(request, 'Admin/Tracking/index.html', context);
