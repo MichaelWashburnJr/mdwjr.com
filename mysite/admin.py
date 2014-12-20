@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Project, ProjectFile, ProjectLink
+from models import Project, ProjectFile, ProjectLink, UserRequest
 
 class ProjectFileInline(admin.StackedInline):
 	model = ProjectFile;
@@ -13,4 +13,8 @@ class ProjectAdmin(admin.ModelAdmin):
 	fields = ['title', 'description', 'last_updated'];
 	inlines = [ProjectFileInline, ProjectLinkInline];
 
+class UserRequestAdmin(admin.ModelAdmin):
+	fields = ['page', 'method', 'referer', 'ip']
+
 admin.site.register(Project, ProjectAdmin);
+admin.site.register(UserRequest, UserRequestAdmin);
