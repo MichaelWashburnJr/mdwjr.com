@@ -25,10 +25,9 @@ Tracking
 
 {% block content %}
 
-<div class="btn-group btn-group-justified">
-    <a class="btn btn-default">Users</a>
-    <a class="btn btn-default">Log</a>
-</div>
+<a class="btn btn-default btn-block" href="{% url 'mysite:tracking_log' %}">
+View Log
+</a>
 
 <br/>
 

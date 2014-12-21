@@ -22,4 +22,6 @@ urlpatterns = patterns('',
 
     # Admin pages
    	url(r'^Admin/Tracking/$', 'mysite.views.tracking', name='tracking'),
+ 	url(r'^Admin/Tracking/Log/$', 'mysite.views.tracking_log', name='tracking_log'),
+   	  	
 )

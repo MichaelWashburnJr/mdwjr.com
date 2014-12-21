@@ -151,3 +151,17 @@ def tracking(request):
         'todays_users_list' : todays_users_list,
     }
     return render(request, 'Admin/Tracking/index.html', context);
+
+"""
+Page for displaying the entire recorded tracking log
+"""
+@login_required
+def tracking_log(request):
+    if not(request.user.is_superuser):
+        raise Http404;
+    hits = UserRequest.objects.all().order_by("-time");
+    context = {
+        'request' : request,
+        'hits' : hits,
+    }
+    return render(request, 'Admin/Tracking/Log/index.html', context);

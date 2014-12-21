@@ -1,0 +1,58 @@
+<!--
+File: /index.html
+Language: Django Template Language
+
+Author: Michael D Washburn Jr. <mdw7326@rit.edu>
+
+Description:
+-->
+
+{% extends 'base.html' %}
+
+{% block title %}
+Tracking Log
+{% endblock title %}
+
+{% block description %}
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+{% endblock description %}
+
+{% block extra_tags %}
+{% endblock extra_tags %}
+
+{% block page_id %}tracking_log{% endblock page_id %}
+
+{% block content %}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Log</h3>
+    </div>
+    <div class="panel-body">
+    	<table class="table table-bordered table-hover">
+    		<thead>
+    			<tr>
+    				<th>IP</th>
+    				<th>Method</th>
+    				<th>Page</th>
+    				<th>Referer</th>
+    				<th>Time</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			{% for hit in hits %}
+    				<tr>
+    					<td>{{hit.ip}}</td>
+    					<td>{{hit.method}}</td>
+    					<td>{{hit.page}}</td>
+    					<td>{{hit.referer}}</td>
+    					<td>{{hit.time}}</td>
+    				</tr>
+    			{% endfor %}
+    		</tbody>
+    	</table>
+    </div>
+</div>
+
+{% endblock content %}
