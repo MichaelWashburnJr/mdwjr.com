@@ -110,33 +110,44 @@ def tracking(request):
     #get unique visits from today
     today = datetime.datetime.now().date();
     today_start = datetime.datetime.combine(today, datetime.time.min);
-    today_end = datetime.datetime.combine(today, datetime.time.max);
-    todays_unique_hits = UserRequest.objects.filter(time__range=(today_start, today_end)).values("ip").annotate(n=models.Count("pk"));
+    todays_unique_hits = UserRequest.objects.filter(time__gte=today_start).values("ip").annotate(n=models.Count("pk"));
     #get hit information per page
     hits_by_page_list = [];
     pages = UserRequest.objects.all().order_by("page").values("page").annotate(n=models.Count("pk"));
     for page in pages:
+        page = page["page"];
         #add page path 
-        pageList = [page["page"]];
+        pageList = [page];
         #get all page hits ever
-        totalPageHits = UserRequest.objects.filter(page=page["page"]);
+        totalPageHits = UserRequest.objects.filter(page=page);
         pageList.append(len(totalPageHits));
         #get all unique page hits ever 
         pageList.append(len(totalPageHits.values("ip").annotate(n=models.Count("pk"))));
         #get all page hits from today
-        todaysPageHits = totalPageHits.filter(time__range=(today_start, today_end));
+        todaysPageHits = totalPageHits.filter(time__gte=today_start);
         pageList.append(len(todaysPageHits));
         #get all unique page hits from today
         pageList.append(len(todaysPageHits.values("ip").annotate(n=models.Count("pk"))));
 
         hits_by_page_list.append(pageList);
 
+    #build list of today's ips with referers and times
+    todays_users_list = []
+    for ip in todays_unique_hits:
+        ip = ip["ip"];
+        userHits = UserRequest.objects.filter(ip=ip).order_by("time");
+        referer_orig = userHits[0].referer;
+        time_orig = userHits[0].time;
+        #add this user to the list
+        todays_users_list.append([ip,referer_orig, time_orig]);
+
     #build context and render page
     context = {
         'request' : request,
         'total_num_hits' : total_num_hits,
         'total_num_unique_hits' : len(total_unique_hits),
-        'todays_unique_hits' : todays_unique_hits,
+#        'todays_unique_hits' : todays_unique_hits,
         'hits_by_page_list' : hits_by_page_list,
+        'todays_users_list' : todays_users_list,
     }
     return render(request, 'Admin/Tracking/index.html', context);
