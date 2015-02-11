@@ -7,6 +7,7 @@ Author: Michael D Washburn Jr <mdw7326@rit.edu>
 Description: Contains functions to track and log user data.
 """
 from models import UserRequest
+import IPLookup as ip_lookup
 
 def Log(request):
 	if not(request.user.is_superuser):
@@ -14,12 +15,18 @@ def Log(request):
 		method = request.method;
 		referer = request.META.get('HTTP_REFERER');
 		ip = get_client_ip(request);
+		ip_info = ip_lookup.GetIPInfo(ip);
 
 		log = UserRequest(
 			page=page,
 			method=method,
 			referer=referer,
-			ip=ip);
+			ip=ip,
+			city=ip_info["city"],
+			state=ip_info["regionName"],
+			country=ip_info["country"],
+			organization=ip_info["org"]
+			);
 		log.save();
 
 

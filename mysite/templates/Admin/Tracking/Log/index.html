@@ -34,20 +34,26 @@ Tracking Log
     		<thead>
     			<tr>
     				<th>IP</th>
-    				<th>Method</th>
     				<th>Page</th>
     				<th>Referer</th>
     				<th>Time</th>
+                    <th>Organization</th>
+                    <th>City</th>
+                    <th>Region</th>
+                    <th>Country</th>
     			</tr>
     		</thead>
     		<tbody>
     			{% for hit in hits %}
     				<tr>
     					<td>{{hit.ip}}</td>
-    					<td>{{hit.method}}</td>
     					<td>{{hit.page}}</td>
     					<td>{{hit.referer}}</td>
     					<td>{{hit.time}}</td>
+                        <th>{{hit.organization}}</th>
+                        <th>{{hit.city}}</th>
+                        <th>{{hit.state}}</th>
+                        <th>{{hit.country}}</th>
     				</tr>
     			{% endfor %}
     		</tbody>

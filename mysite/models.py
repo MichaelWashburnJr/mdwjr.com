@@ -57,7 +57,7 @@ class ProjectFile(models.Model):
 
 
 ###############################################################################
-# Log Models
+# Tracking Models
 ###############################################################################
 
 """
@@ -69,6 +69,12 @@ class UserRequest(models.Model):
     referer = models.CharField(max_length=200, null=True, blank=True);
     ip = models.CharField(max_length=50, null=True, blank=True);
     time = models.DateTimeField(auto_now_add=True);
+    #location
+    city = models.CharField(max_length=50, null=True, blank=True);
+    state = models.CharField(max_length=10, null=True, blank=True);
+    country = models.CharField(max_length=100, null=True, blank=True);
+    organization = models.CharField(max_length=100, null=True, blank=True);
+
 
     def __str__(self):
         return self.ip + ":" + str(self.time);
