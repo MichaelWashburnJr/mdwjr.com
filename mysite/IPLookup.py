@@ -11,7 +11,7 @@ their values.
 from urllib2 import urlopen
 import xml.etree.ElementTree as ET
 
-API_URL = "http://ip-api.com/xml/#"
+API_URL = "http://ip-api.com/xml/"
 
 """
 Returns an XML ElementTree when given an IP address to lookup.
@@ -22,6 +22,7 @@ The XML Contains the following elements:
 """
 def GetXMLFromAPI(ip_address):
 	#get the xml code from the api for the ip address
+	print(API_URL + ip_address);
 	content = urlopen(API_URL + ip_address).read()
 	#parse the xml and get the root element
 	return ET.fromstring(content)
