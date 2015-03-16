@@ -1,5 +1,5 @@
-./activate
-./restart
+activate
+restart
 settings.py
 
 
