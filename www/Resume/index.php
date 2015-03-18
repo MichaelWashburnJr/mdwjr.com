@@ -10,19 +10,12 @@
 
 <?php include('/var/www/mdwjr.com/www/nav.php');?>
  
-<body id="">
+<body id="resume">
 
-
-    <div class="container">
         
-        <!-- CUSTOM CONTENT GOES HERE -->
-
-                <iframe src="https://drive.google.com/a/g.rit.edu/file/d/0BwEjRillyZroTVlQd3BHdkxaV3M/preview" width="100%" height="1068px;"></iframe>
-                Download the pdf <a href="https://drive.google.com/a/g.rit.edu/file/d/0BwEjRillyZroTVlQd3BHdkxaV3M/preview">here</a>.
-
-        <!-- END CUSTOM CONTENT -->
-
-    </div>
+    <!-- CUSTOM CONTENT GOES HERE -->
+    <iframe src="https://drive.google.com/a/g.rit.edu/file/d/0BwEjRillyZroTVlQd3BHdkxaV3M/preview"></iframe>
+    <!-- END CUSTOM CONTENT -->
  
     <?php include('/var/www/mdwjr.com/www/foot_tags.php');?>
 
