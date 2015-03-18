@@ -3,8 +3,8 @@
 <head>
     
     <title>Michael Washburn Jr</title>
-    <meta name="description" content="Michael Washburn Jr"/>
-    <meta name="keywords" content="Micael Washburn Jr Greene New York Software Engineer RIT Web Design Graphic Design Developer"/>
+    <meta name="description" content="Michael Washburn Jr's Personal Website."/>
+    <meta name="keywords" content="Micael Washburn Jr Software Engineer RIT Rochester Institute Technology"/>
     <?php include('/var/www/mdwjr.com/www/head_tags.php');?>
  
 </head>
@@ -42,16 +42,14 @@
 
             </div>
             <div class="panel-body">
-
-                &nbsp;
-                I am going into my 3<sup>rd</sup> year at RIT as a Software Engineering Major and currently work
-                at The Raymond Corporation as a Software Engineer Co-op.
-                Outside of classes, I like to take on any web development jobs I can and work on my own projects.
-                You can view projects of mine <a href="./Projects">here</a> or
-                on my GitHub Account <a href="https://github.com/mdw7326" target="_blank">here</a>.
-                Additionally, I enjoy hunting and fishing in my free time.
-                If you wish to get a hold of me, visit my <a href="./Contact/">Contact</a> page.
-
+                I am going into my 3<sup>rd</sup> year at RIT, Majoring in Software Engineering.
+                I'm currently working as a Course Assistant for a Math Models of Software Engineering class.
+                Outside of classes, I like to work on my own projects as much as possible.  My interests
+                in software range from Web Development to embedded software (Arduino's are fun!).
+                You can view projects of mine <a href="./Projects">here</a>, and I would also encourage
+                you to check out my <a href="https://github.com/mdw7326" target="_blank">Github Account</a>.
+                Additionally, I enjoy to go hunting, fishing, snowmobiling, and watch Netflix.
+                If you wish to get a hold of me, visit my <a href="./Contact/">Contact page</a>.
             </div>
         </div>
 
