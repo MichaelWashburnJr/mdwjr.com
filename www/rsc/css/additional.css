@@ -31,7 +31,7 @@ body{
 /* RESUME PAGE */
 #resume iframe {
 	position: absolute;
-	top: 50;/* to account for the nav bar */
+	top: 60;/* to account for the nav bar */
 	bottom: 0;	
 	height: 100%;
 	width: 100%;
