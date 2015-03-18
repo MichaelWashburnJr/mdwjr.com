@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
                 <div class="thumbnail self">
-                    <img src="https://dl.dropboxusercontent.com/sh/w50g5b1f43k0m1e/z2Sx-MvJ3F/images/img.png?token_hash=AAEsMpEuhBZ05iUQ8vB8lCVEJCbdx7EpaNo7iVwYLJ9X_A&dl=1">
+                    <img src="/rsc/img/me.png">
                 </div>
             </div>
 
