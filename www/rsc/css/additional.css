@@ -34,6 +34,7 @@ body{
 	top: 50;/* to account for the nav bar */
 	bottom: 0;	
 	height: 100%;
+	width: 100%;
 }
 
 @media only screen and (max-width: 1000px){
