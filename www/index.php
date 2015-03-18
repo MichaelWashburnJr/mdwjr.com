@@ -5,11 +5,11 @@
     <title>Michael Washburn Jr</title>
     <meta name="description" content="Michael Washburn Jr"/>
     <meta name="keywords" content="Micael Washburn Jr Greene New York Software Engineer RIT Web Design Graphic Design Developer"/>
-    <?php include('/var/www/html/michaelwashburnjr.com/head_tags.php');?>
+    <?php include('/head_tags.php');?>
  
 </head>
 
-<?php include('/var/www/html/michaelwashburnjr.com/nav.php');?>
+<?php include('/nav.php');?>
  
 <body id="home">
 
@@ -57,7 +57,7 @@
 
     </div>
  
-    <?php include('/var/www/html/michaelwashburnjr.com/foot_tags.php');?>
+    <?php include('/foot_tags.php');?>
 
 </body>
  
