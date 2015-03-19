@@ -25,14 +25,15 @@
             </div>
 
             <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
-                <h1>Michael D. Washburn Jr.<br>
-                    <span>
+                <span>
+                    <h1>Michael D. Washburn Jr.<br>
+                        
                         <small>
                             3<sup>rd</sup> year Software Engineering student,<br>
                             Rochester Institute of Technology
                         </small>
-                    </span>
-                </h1><br>
+                    </h1>
+                </span>
             </div>
         </div>
         
