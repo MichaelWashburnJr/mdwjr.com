@@ -18,18 +18,20 @@
  
         
         <div class="row">
-            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
                 <div class="thumbnail self">
                     <img src="/rsc/img/me.png">
                 </div>
             </div>
 
-            <div class="col-xs-10 col-sm-9 col-md-9 col-lg-10">
+            <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
                 <h1>Michael D. Washburn Jr.<br>
-                    <small>
-                        3<sup>rd</sup> year Software Engineering student,<br>
-                        Rochester Institute of Technology
-                    </small>
+                    <span>
+                        <small>
+                            3<sup>rd</sup> year Software Engineering student,<br>
+                            Rochester Institute of Technology
+                        </small>
+                    </span>
                 </h1><br>
             </div>
         </div>
