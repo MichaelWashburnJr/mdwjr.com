@@ -16,7 +16,16 @@ body{
 	display: none;
 }
 
-/* RESUME PAGE */
+/* Index */
+.row span{
+	vertical-align: middle;
+}
+
+/* Resume */
+#resume {
+	overflow-y: hidden;
+}
+
 #resume iframe {
 	position: absolute;
 	top: 0;
