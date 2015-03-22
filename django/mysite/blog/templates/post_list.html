@@ -1,27 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<table class="table table-bordered table-hover">
-	<thead>
-		<tr>
-			<th>Title</th><th>Last Modified</th>
-		</tr>
-	</thead>
-	<tbody>
-		{% for post in posts %}
-		<tr>
-			<td>
-				<a href="{% url 'blog:info' post.id %}">
-				{{post.title}}
-				</a>
-			</td>
-
-			<td>{{post.last_modified}}</td>
-		</tr>
-		{% endfor %}
-	</tbody>
-</table>
-
+{% for post in posts %}
+<a href="{% url 'blog:info' post.id %}" class="btn btn-default btn-lg tiny-stretch" style="margin-bottom: 10px; margin-right: 10px;">
+	<header>
+		<h3>{{post.title}}</h3>
+		<h5>{{post.posted}}</h5>
+	</header>
+</a>
+{% endfor %}
 
 
 {% endblock content %}

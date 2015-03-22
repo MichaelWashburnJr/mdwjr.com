@@ -36,10 +36,6 @@ body{
 	width: 100%;
 }
 
-@media only screen and (max-width: 1000px){
-
-}
-
 @media only screen and (max-width: 768px){
 	.thumbnail img{
 		height: auto;
@@ -53,5 +49,11 @@ body{
 	}
 	.badge-large{
 		display: none;
+	}
+}
+
+@media only screen and (max-width: 400px){
+	.tiny-stretch{
+		width: 100%;
 	}
 }
