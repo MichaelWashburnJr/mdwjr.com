@@ -1,7 +1,9 @@
 activate
 restart
 settings.py
+*.db
 
+migrations/
 
 ###############################################################################
 #### PYTHON IGNORES
@@ -14,7 +16,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-.Python
+.Pythoni
 env/
 build/
 develop-eggs/

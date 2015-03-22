@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Projects{% endblock title %}
+
+{% block description %}
+	This is a list of all my personal projects.
+{% endblock description %}
+
+{% block content %}
+
+<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>Title</th><th>Last Modified</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for post in projects %}
+		<tr>
+			<td>
+				<a href="{% url 'blog:info' post.id %}">
+				{{post.title}}
+				</a>
+			</td>
+
+			<td>{{post.last_modified}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+{% endblock content %}

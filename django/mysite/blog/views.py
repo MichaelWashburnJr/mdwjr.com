@@ -1,6 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from blog.models import Post
 
+def project_list(request):
+	"""
+	Display a list of all posts marked as projects.
+	"""
+	context = {
+		'projects' : Post.objects.filter(category__title__icontains="project"),
+	}
+	return render(request, 'project_list.html', context)
+
 def post_list(request):
 	"""
 	Display a list of all blog posts (unfiltered)
