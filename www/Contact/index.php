@@ -4,11 +4,11 @@
     <title>Michael Washburn Jr</title>
     <meta name="description" content="Here's some contact information."/>
     <meta name="keywords" content="Micael Washburn Jr Software Engineer RIT Rochester Institute Technology"/>
-    <?php include('/var/www/mdwjr.com/www/parts/head_tags.php');?>
+    <?php include('/var/www/mdwjr.com/www/parts/head_tags.html');?>
  
 </head>
 
-<?php include('/var/www/mdwjr.com/www/parts/nav.php');?>
+<?php include('/var/www/mdwjr.com/www/parts/nav.html');?>
  
 <body id="">
 
@@ -52,7 +52,7 @@
 
     </div>
  
-    <?php include('/var/www/mdwjr.com/www/parts/foot_tags.php');?>
+    <?php include('/var/www/mdwjr.com/www/parts/foot_tags.html');?>
 
 </body>
  
