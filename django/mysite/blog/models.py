@@ -20,7 +20,7 @@ class Post(models.Model):
 	slug = models.SlugField(max_length=100, unique=True)
 	body = models.TextField()
 	style = models.TextField(blank=True)
-	posted= models.DateField(db_index=True, auto_now_add=True)
+	posted= models.DateField(db_index=True)
 	last_modified = models.DateField(db_index=True, auto_now=True)
 	category = models.ForeignKey(Category)
 
