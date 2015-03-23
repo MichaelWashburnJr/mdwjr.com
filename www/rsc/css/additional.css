@@ -36,6 +36,17 @@ body{
 	width: 100%;
 }
 
+/* btn-list styles used in project/post list */
+#btn-list-title{
+	text-align: left;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.btn-list-item {
+	margin-bottom: 20px;
+}
+
 @media only screen and (max-width: 768px){
 	.thumbnail img{
 		height: auto;
