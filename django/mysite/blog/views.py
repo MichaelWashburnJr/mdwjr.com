@@ -6,7 +6,7 @@ def project_list(request):
 	Display a list of all posts marked as projects.
 	"""
 	context = {
-		'projects' : Post.getProjects(),
+		'projects' : Post.get_projects(),
 	}
 	return render(request, 'project_list.html', context)
 
@@ -15,7 +15,7 @@ def post_list(request):
 	Display a list of all blog posts (unfiltered)
 	"""
 	context = {
-		'posts' : Post.getAll(),
+		'posts' : Post.get_all(),
 	}
 	return render(request, 'post_list.html', context)
 

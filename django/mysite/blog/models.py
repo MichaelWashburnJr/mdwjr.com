@@ -33,15 +33,23 @@ class Post(models.Model):
 	def __str__(self):
 		return self.title
 
-	def getAll():
+	def get_all():
 		"""
 		Return all active posts.
 		"""
 		return Post.objects.filter(is_active=True).order_by('posted')
 
-	def getProjects():
+	def get_projects():
 		"""
 		return all active project posts.
 		"""
 		return Post.objects.filter(is_active=True, tags__slug='project').order_by('posted')
 
+	def tags_to_str(self):
+		"""
+		Return a space separated string of tags.
+		"""
+		string = ""
+		for tag in self.tags.all():
+			string += tag.slug + " "
+		return string

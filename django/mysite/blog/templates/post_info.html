@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
+{% block title %}{{post.title}}{% endblock title %}
+{% block head %}
+<style>{{post.style}}</style>
+{% endblock head %}
 {% block content %}
 
 <div class="container col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
