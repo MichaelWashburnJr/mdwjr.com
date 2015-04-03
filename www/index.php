@@ -50,7 +50,7 @@
             You can view projects of mine <a href="./Projects">here</a>, and I would also encourage
             you to check out my <a href="https://github.com/mdw7326" target="_blank">Github Account</a>.
             Additionally, I enjoy to go hunting, fishing, snowmobiling, and watch Netflix.
-            If you wish to get a hold of me, visit my <a href="./Contact/">Contact page</a>.
+            If you wish to get a hold of me, see the links below.
         </div>
     </div>
 
