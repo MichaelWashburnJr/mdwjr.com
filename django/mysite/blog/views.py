@@ -6,7 +6,7 @@ def project_list(request):
 	Display a list of all posts marked as projects.
 	"""
 	context = {
-		'projects' : Post.objects.filter(category__title__icontains="project", is_active=True),
+		'projects' : Post.getProjects(),
 	}
 	return render(request, 'project_list.html', context)
 
@@ -15,7 +15,7 @@ def post_list(request):
 	Display a list of all blog posts (unfiltered)
 	"""
 	context = {
-		'posts' : Post.objects.filter(is_active=True),
+		'posts' : Post.getAll(),
 	}
 	return render(request, 'post_list.html', context)
 

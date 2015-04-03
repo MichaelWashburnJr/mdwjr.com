@@ -1,15 +1,21 @@
 from django.db import models
 
-class Category(models.Model):
+class Tag(models.Model):
 	"""
 	A category of a post.  This could be a project, tutorial,
-	review, etc.
+	review, or a keyword like django, c++, etc.
 	"""
-	title = models.CharField(max_length=100, db_index=True)
-	slug = models.CharField(max_length=100, db_index=True)
+	name = models.CharField(max_length=40, db_index=True)
+	slug = models.CharField(max_length=40, db_index=True)
 
 	def __str__(self):
-		return self.title
+		return self.name
+
+	def getPosts(self):
+		"""
+		Get all posts with this tag.
+		"""
+		return Post.objects.filter(is_active=True, tags__name=self.name).order_by('posted')
 
 class Post(models.Model):
 	"""
@@ -22,8 +28,20 @@ class Post(models.Model):
 	style = models.TextField(blank=True)
 	posted= models.DateField(db_index=True)
 	last_modified = models.DateField(db_index=True, auto_now=True)
-	category = models.ForeignKey(Category)
+	tags = models.ManyToManyField(Tag)
 
 	def __str__(self):
 		return self.title
+
+	def getAll():
+		"""
+		Return all active posts.
+		"""
+		return Post.objects.filter(is_active=True).order_by('posted')
+
+	def getProjects():
+		"""
+		return all active project posts.
+		"""
+		return Post.objects.filter(is_active=True, tags__slug='project').order_by('posted')
 
