@@ -4,11 +4,11 @@
     <title>Michael Washburn Jr</title>
     <meta name="description" content=""/>
     <meta name="keywords" content="Micael Washburn Jr Software Engineer RIT Rochester Institute Technology"/>
-    <?php include('/rsc/parts/head_tags.html');?>
+    <?php include('../rsc/parts/head_tags.html');?>
  
 </head>
 
-<?php include('/rsc/parts/nav.html');?>
+<?php include('../rsc/parts/nav.html');?>
  
 <body id="">
 
@@ -23,7 +23,7 @@
 
     </div>
  
-    <?php include('/rsc/parts/foot_tags.html');?>
+    <?php include('../rsc/parts/foot_tags.html');?>
 
 </body>
  
