@@ -5,8 +5,8 @@ class Tag(models.Model):
 	A category of a post.  This could be a project, tutorial,
 	review, or a keyword like django, c++, etc.
 	"""
-	name = models.CharField(max_length=40, db_index=True)
-	slug = models.CharField(max_length=40, db_index=True)
+	name = models.CharField(max_length=20, db_index=True)
+	slug = models.CharField(max_length=20, db_index=True)
 
 	def __str__(self):
 		return self.name

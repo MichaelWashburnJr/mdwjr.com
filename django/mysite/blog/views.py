@@ -10,10 +10,11 @@ def project_list(request):
 		'tags' : Tag.objects.exclude(slug="project"),
 		'description' : "This is a list of all my projects",
 		'title': "Projects",
+		'start_filter' : "*"
 	}
 	return render(request, 'post_list.html', context)
 
-def post_list(request):
+def post_list(request, start_filter="*"):
 	"""
 	Display a list of all blog posts (unfiltered)
 	"""
@@ -22,6 +23,7 @@ def post_list(request):
 		'tags' : Tag.objects.all(),
 		'description' : "These are all of my blog posts.",
 		'title' : "Blog",
+		'start_filter' : "*"
 	}
 	return render(request, 'post_list.html', context)
 
