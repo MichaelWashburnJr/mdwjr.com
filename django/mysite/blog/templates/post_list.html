@@ -1,23 +1,59 @@
 {% extends 'base.html' %}
 
-{% block title %}Blog{% endblock title %}
+{% block title %}{{title}}{% endblock title %}
 
 {% block description %}
-	This is a list of all my blog posts, including projects.
+	{{description}}
 {% endblock description %}
+
 {% block content %}
 
-<ul class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 list-unstyled">
-	{% for post in posts %}
-	<a href="{% url 'blog:info' post.id %}" class="btn-list-item btn btn-default btn-lg btn-block">
-		<h1 id="btn-list-title">
-			{{post.title}}
-			<br class="visible-xs"/>
-			<small>{{post.posted}}</small>
-		</h1>
-	</a>
-	{% endfor %}
-</ul>
+<div class="container">
 
+	<div class="row">
+		<div id="filters" class="btn-group" role="group">
+			<button class="btn btn-primary is-checked" data-filter="*">All</button>
+			{% for tag in tags %}
+			<button class="btn btn-primary is-checked" data-filter=".{{tag.slug}}">{{tag}}</button>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="row" id="container">
+		{% for post in posts %}
+		<a class="col-lg-4 col-md-5 col-sm-6 col-xs-12 btn btn-default btn-tile item {{post.tags_to_str}}"
+			href="{% url 'blog:info' post.id %}" class="">
+			<h1>
+				{{post.title}}
+				<br/>
+				<small>{{post.posted}}</small>
+			</h1>
+			
+			<div class="tags">
+			{% for tag in post.tags.all %}
+				{% if tag in tags %}
+				<span class="tag label label-primary label-md">{{tag}}</span>
+				{% endif %}
+			{% endfor %}
+			</div>
+
+			
+		</a>
+		{% endfor %}
+	</div>
+</div>
 
 {% endblock content %}
+
+{% block scripts %}
+<script src="/rsc/js/isotope.pkgd.min.js"></script>
+<script type="text/javascript">
+	var $container = $('#container');
+	// init
+	// filter items on button click
+	$container.isotope({ filter: "*" });
+	$('#filters').on( 'click', 'button', function() {
+	  var filterValue = $(this).attr('data-filter');
+	  $container.isotope({ filter: filterValue });
+	});
+</script>
+{% endblock scripts %}
