@@ -41,7 +41,7 @@
             <h3 class="panel-title">About Me:</h3>
 
         </div>
-        <div class="panel-body">
+        <div class="panel-body font-large">
             I am going into my 3<sup>rd</sup> year at RIT, majoring in Software Engineering.
             I'm currently working as a Course Assistant for a Math Models of Software Engineering class.
             Outside of classes, I like to work on my own projects as much as possible.  My interests
