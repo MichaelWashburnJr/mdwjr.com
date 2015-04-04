@@ -46,7 +46,7 @@
             I'm currently working as a Course Assistant for a Math Models of Software Engineering class.
             Outside of classes, I like to work on my own projects as much as possible.  My interests
             in software range from Web Development to embedded software (Arduino's are fun!).
-            You can view projects of mine <a href="./Projects">here</a>, and I would also encourage
+            You can view projects of mine <a href="/d/Blog/Projects/">here</a>, and I would also encourage
             you to check out my <a href="https://github.com/mdw7326" target="_blank">Github Account</a>.
             Additionally, I enjoy to go hunting, fishing, snowmobiling, and watch Netflix.
             If you wish to get a hold of me, see the links below.
