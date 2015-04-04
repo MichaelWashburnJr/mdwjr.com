@@ -2,6 +2,10 @@ body{
 	padding-top: 70px;
 }
 
+.label-md {
+	font-size: 12pt;
+}
+
 .thumbnail img{
 	height: auto;
 	width: 100%; 
@@ -37,20 +41,44 @@ body{
 }
 
 /* btn-list styles used in project/post list */
-#btn-list-title{
-	text-align: left;
-	margin-left: 20px;
+.btn-tile {
+	border-radius: 0px;
+	/* sizes change per screen size */
 	margin-right: 20px;
+	margin-top: 20px;
+
+	padding-top: 50px;
+	padding-bottom: 55px;
 }
 
-.btn-list-item {
-	margin-bottom: 20px;
+/* Tags hover effect */
+.tags {
+	text-align: center;
+	margin-right: 25px;
+}
+
+.tag {
+	margin-top: 10px;
+	margin-right: -25px;
+	-webkit-transition: all 250ms ease-in-out;
+	-moz-transition: all 250ms ease-in-out;
+	-o-transition: all 250ms ease-in-out;
+	transition: all 250ms ease-in-out;
+}
+
+.tags:hover .tag {
+	margin-right: 10px;
 }
 
 @media only screen and (max-width: 768px){
 	.thumbnail img{
 		height: auto;
 		width: 100%;
+	}
+
+	.btn-tile {
+		padding-top: 25px;
+		padding-bottom: 35px;
 	}
 }
 

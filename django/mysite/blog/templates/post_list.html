@@ -50,7 +50,16 @@
 	var $container = $('#container');
 	// init
 	// filter items on button click
-	$container.isotope({ filter: "{{start_filter}}" });
+	var $start_filter = window.location.hash;
+	if($start_filter === "")
+	{
+		$start_filter = "*";
+	}
+	else
+	{
+		$start_filter = ".".concat($start_filter.substring(1));
+	}
+	$container.isotope({ filter: $start_filter });
 	$('body').on( 'click', '.filter', function(e) {
 		e.preventDefault();
 		var filterValue = $(this).attr('data-filter');
