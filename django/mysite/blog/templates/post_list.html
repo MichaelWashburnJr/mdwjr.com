@@ -20,7 +20,7 @@
 	</div>
 	<div class="row" id="container">
 		{% for post in posts %}
-		<a class="col-lg-4 col-md-5 col-sm-6 col-xs-12 btn btn-default btn-tile item {{post.tags_to_str}}"
+		<a class="btn btn-default btn-tile item {{post.tags_to_str}}"
 			href="{% url 'blog:info' post.id %}" class="">
 			<h1>
 				{{post.title}}

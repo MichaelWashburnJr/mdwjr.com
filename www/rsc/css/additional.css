@@ -59,6 +59,7 @@ body{
 
 	padding-top: 50px;
 	padding-bottom: 55px;
+	min-width: 300px;
 }
 
 /* Tags hover effect */

@@ -11,11 +11,8 @@ class Tag(models.Model):
 	def __str__(self):
 		return self.name
 
-	def getPosts(self):
-		"""
-		Get all posts with this tag.
-		"""
-		return Post.objects.filter(is_active=True, tags__name=self.name).order_by('posted')
+	def get_all():
+		return Tag.objects.all().order_by('name')
 
 class Post(models.Model):
 	"""
