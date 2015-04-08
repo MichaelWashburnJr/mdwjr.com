@@ -9,13 +9,13 @@
     <meta name="keywords" content="{% block keywords %}{% endblock keywords %}Micael Washburn Jr Software Engineer RIT Rochester Institute Technology"/>
     
     <!-- head_tags.html -->
-    {% include 'head_tags.html' %}
+    {% include 'parts/head_tags.html' %}
     {% block head %}{% endblock head %}
 	 
 </head>
 
 <!-- nav.html -->
-{% include 'nav.html' %}
+{% include 'parts/nav.html' %}
  
 <body>
 
@@ -25,7 +25,7 @@
     </div>
 
     <!--foot_tags.html-->
-    {% include 'foot_tags.html' %}
+    {% include 'parts/foot_tags.html' %}
 
     {% block scripts %} {% endblock scripts %}
 

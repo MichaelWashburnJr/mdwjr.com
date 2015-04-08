@@ -17,10 +17,15 @@
 		{{post.body|safe}}
 	</div>
 
+
 	{% for tag in post.tags.all %}
 	<a href="{% url 'blog:list'%}#{{tag.slug}}"class="label label-primary label-md label-border">{{tag}}</a>
 	{% endfor %}
 
+
+	<br/><br/>
+	{% include 'parts/contact_bar.html' %}
+	
 </div>
 
 

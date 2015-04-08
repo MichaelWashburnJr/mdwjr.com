@@ -53,32 +53,8 @@
         </div>
     </div>
 
-    <div class="btn-group btn-group-justified">
-        <a class="btn btn-social-icon btn-primary" role="button" href="mailto:mdw7326@rit.edu">
-            <i class="fa fa-envelope-o"></i>
-        </a>
 
-        <a class="btn btn-social-icon btn-linkedin" role="button" target="_blank" href="http://www.linkedin.com/pub/michael-washburn-jr/78/453/a06">
-            <i class="fa fa-linkedin"></i>
-        </a>
-
-        <a class="btn btn-social-icon btn-facebook" role="button" target="_blank" href="https://www.facebook.com/michael.washburnjr">
-            <i class="fa fa-facebook"></i>
-        </a>
-
-        <a class="btn btn-social-icon btn-twitter" role="button" target="_blank" href="https://twitter.com/Mike_Washburn">
-            <i class="fa fa-twitter"></i>
-        </a>
-
-        <a class="btn btn-social-icon btn-google-plus" role="button" target="_blank" href="https://plus.google.com/116038274590759263782">
-            <i class="fa fa-google-plus"></i>
-        </a>
-
-        <a class="btn btn-social-icon btn-github" role="button" target="_blank" href="https://github.com/mdw7326">
-            <i class="fa fa-github"></i>
-        </a>
-    </div>
-
+    <?php include('./rsc/parts/contact_bar.html');?>
 
  
     <?php include('./rsc/parts/foot_tags.html');?>
