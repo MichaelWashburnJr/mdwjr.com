@@ -34,13 +34,13 @@ class Post(models.Model):
 		"""
 		Return all active posts.
 		"""
-		return Post.objects.filter(is_active=True).order_by('posted')
+		return Post.objects.filter(is_active=True).order_by('-posted')
 
 	def get_projects():
 		"""
 		return all active project posts.
 		"""
-		return Post.objects.filter(is_active=True, tags__slug='project').order_by('posted')
+		return Post.objects.filter(is_active=True, tags__slug='project').order_by('-posted')
 
 	def tags_to_str(self):
 		"""
