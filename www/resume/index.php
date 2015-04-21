@@ -14,7 +14,8 @@
 
         
     <!-- CUSTOM CONTENT GOES HERE -->
-    <iframe src="https://drive.google.com/a/g.rit.edu/file/d/0BwEjRillyZroTVlQd3BHdkxaV3M/preview"></iframe>
+    <object data="/rsc/michael-washburn-resume.pdf" type="application/pdf">
+    </object>
     <!-- END CUSTOM CONTENT -->
  
     <?php include('../rsc/parts/foot_tags.html');?>
