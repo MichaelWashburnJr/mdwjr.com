@@ -17,16 +17,13 @@
 		{{post.body|safe}}
 	</div>
 
-
-	{% for tag in post.tags.all %}
-	<a href="{% url 'blog:list'%}#{{tag.slug}}"class="label label-primary label-md label-border">{{tag}}</a>
-	{% endfor %}
-
-
-	<br/><br/>
+	<div class="pull-left" style="margin-bottom: 20px;">
+		{% for tag in post.tags.all %}
+		<a href="{% url 'blog:list'%}#{{tag.slug}}"class="label label-primary label-md label-border">{{tag}}</a>
+		{% endfor %}
+	</div>
 	{% include 'parts/contact_bar.html' %}
 	
 </div>
-
 
 {% endblock content %}
