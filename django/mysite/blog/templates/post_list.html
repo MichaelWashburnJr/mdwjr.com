@@ -21,7 +21,7 @@
 	<div class="row" id="container">
 		{% for post in posts %}
 		<a class="btn btn-default btn-tile item {{post.tags_to_str}}"
-			href="{% url 'blog:info' post.id %}" class="">
+			href="{% url 'blog:post' post.slug %}" class="">
 			<h1>
 				{{post.title}}
 				<br/>

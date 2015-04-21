@@ -26,11 +26,12 @@ def post_list(request):
 	}
 	return render(request, 'post_list.html', context)
 
-def post_info(request, post_id=0):
+def post_info(request, slug):
 	"""
 	Displays a blog post in its entirity
 	"""
-	post = get_object_or_404(Post, pk=post_id)
+	print(slug)
+	post = get_object_or_404(Post, slug=slug)
 	if not post.is_active:
 		raise Http404
 		
