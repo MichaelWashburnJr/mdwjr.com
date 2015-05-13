@@ -10,7 +10,7 @@ def project_list(request):
 	posts = Post.get_projects()
 	context = {
 		'posts' : posts,
-		'tags' : Tag.get_tags_in_posts(posts),
+		'tags' : Tag.get_tags_in_posts(posts).exclude(slug="project"),
 		'description' : "This is a list of all my projects",
 		'title': "Projects"
 	}
@@ -38,6 +38,7 @@ def post_info(request, slug):
 	if not post.is_active:
 		raise Http404
 
+	#remove the project tag on the info page
 	tags = post.tags.exclude(slug='project')
 		
 	context = {
