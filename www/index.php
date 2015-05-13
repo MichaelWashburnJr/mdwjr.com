@@ -42,14 +42,14 @@
 
         </div>
         <div class="panel-body font-large">
-            I am going into my 3<sup>rd</sup> year at RIT, majoring in Software Engineering.
-            I'm currently working as a Course Assistant for a Math Models of Software Engineering class.
+            I just finished my 3<sup>rd</sup> year at RIT, as a Software Engineering major.
+            This summer I will be working at Lockheed Martin as a Software Engineer Co-op.
             Outside of classes, I like to work on my own projects as much as possible.  My interests
-            in software range from Web Development to embedded software (Arduino's are fun!).
-            You can view projects of mine <a href="/d/Blog/Projects/">here</a>, and I would also encourage
+            in software range from web development to embedded software (Arduino's are fun!).
+            You can view projects of mine <a href="/blog/projects">here</a>, and I would also encourage
             you to check out my <a href="https://github.com/mdw7326" target="_blank">Github Account</a>.
-            Additionally, I enjoy to go hunting, fishing, snowmobiling, and watch Netflix.
-            If you wish to get a hold of me, see the links below.
+            I also enjoy hunting, fishing, four-wheeling, and snowmobiling.
+            If you wish to get a hold of me, please see the links below.
         </div>
     </div>
 
