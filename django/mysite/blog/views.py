@@ -6,9 +6,11 @@ def project_list(request):
 	"""
 	Display a list of all posts marked as projects.
 	"""
+	#get all posts that are projects and not blog posts
+	posts = Post.get_projects()
 	context = {
-		'posts' : Post.get_projects(),
-		'tags' : Tag.get_all().exclude(slug="project"),
+		'posts' : posts,
+		'tags' : Tag.get_tags_in_posts(posts),
 		'description' : "This is a list of all my projects",
 		'title': "Projects"
 	}
@@ -18,9 +20,10 @@ def post_list(request):
 	"""
 	Display a list of all blog posts (unfiltered)
 	"""
+	posts = Post.get_blog_posts()
 	context = {
-		'posts' : Post.get_all(),
-		'tags' : Tag.get_all(),
+		'posts' : posts,
+		'tags' :  Tag.get_tags_in_posts(posts),
 		'description' : "These are all of my blog posts.",
 		'title' : "Blog"
 	}
@@ -34,8 +37,11 @@ def post_info(request, slug):
 	post = get_object_or_404(Post, slug=slug)
 	if not post.is_active:
 		raise Http404
+
+	tags = post.tags.exclude(slug='project')
 		
 	context = {
 		'post' : post,
+		'tags' : tags
 	}
 	return render(request, 'post_info.html', context)
