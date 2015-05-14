@@ -11,5 +11,5 @@ urlpatterns = patterns('',
     url(r'^resume$', views.resume, name='resume'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^blog/', include(blog_urls, namespace='blog')),
-    url(r'^contentmanager/', include(content_manager_urls, namespace='content_manager')),
+    url(r'^contentmanager/', include(content_manager_urls, namespace='cm')),
     )

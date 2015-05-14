@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .decorators import staff_required
 from content_manager.models import Content
+from .models import *
 
 @staff_required
 def create_page(request):
