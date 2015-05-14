@@ -14,11 +14,16 @@
         <div class="form-group">
             {% for field in form %}
                 <!-- Do something special for the media part of the form. -->
-                {{ field.label_tag }}
-                <div class="entry {% if field.errors.0 %}entry-error{% endif %}">
-                    {{ field }}
-                    <div class="text-danger">{{ field.errors.0 }}</div>
-                </div>
+                {% if field == form.media %}
+                    {{field.label_tag}}
+                    {{field}}
+                {% else %}
+                    {{ field.label_tag }}
+                    <div class="entry {% if field.errors.0 %}entry-error{% endif %}">
+                        {{ field }}
+                        <div class="text-danger">{{ field.errors.0 }}</div>
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
         <br></br>

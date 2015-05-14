@@ -48,7 +48,7 @@ def create_content(request):
     Create a new content object.
     """
     if request.method == "POST":
-        content_form = ContentForm(request.POST)
+        content_form = ContentForm(request.POST, request.FILES)
 
         if content_form.is_valid():
             content = content_form.save()
@@ -66,15 +66,15 @@ def edit_content(request, content_id=0):
     """
     content = get_object_or_404(Content, id=content_id)
     if request.method == "POST":
-        content_form = ContentForm(request.POST, instance=content)
+        content_form = ContentForm(request.POST, request.FILES, instance=content)
 
         if content_form.is_valid():
             if 'submit' in request.POST:
                 content = content_form.save()
             elif 'delete' in request.POST:
                 content.delete()
-            return redirect('cm:panel')
-
+            return render(request, 'cm_edit_content.html', {'form' : content_form, 'id':content.id, 'success':True})
+    
         else:
             return render(request, 'cm_edit_content.html', {'form' : content_form, 'id':content.id, 'failure':True})
     content_form = ContentForm(instance=content)
