@@ -1,5 +1,5 @@
 from django.db import models
-from .storage import OverwritesStorage, file_path
+from .storage import OverwritesStorage
 from django.conf import settings
 import os
 
