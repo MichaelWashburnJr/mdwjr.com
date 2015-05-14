@@ -67,7 +67,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'DATABASE_ENGINE',
         'NAME': 'DATABASE',
-	'USER': 'USERNAME',
+    'USER': 'USERNAME',
         'PASSWORD': 'PASSWORD',
         'HOST': 'localhost',
         'PORT': '',
