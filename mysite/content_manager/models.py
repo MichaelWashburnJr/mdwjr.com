@@ -23,7 +23,7 @@ class Content(models.Model):
     name = models.CharField(max_length=30, unique=True)
     body = models.TextField(blank=True,null=True)
     page = models.ForeignKey(Page, related_name='content_set')
-    media = models.FileField(storage=OverwritesStorage(), upload_to=file_path, blank=True,null=True)
+    media = models.FileField(storage=OverwritesStorage(), blank=True,null=True)
 
     def __str__(self):
         return self.name

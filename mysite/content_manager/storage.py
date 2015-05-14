@@ -2,12 +2,6 @@ from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 import os
 
-def file_path(instance, filename):
-        """
-        Returns the path the media file should be saved to.
-        """
-        return os.path.join(settings.MEDIA_ROOT, filename)
-
 class OverwritesStorage(FileSystemStorage):
     """
     Defines a storage system for use in File and Image field to overwrite the
