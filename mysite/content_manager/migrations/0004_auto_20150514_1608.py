@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import content_manager.models
 import content_manager.storage
 
 
@@ -20,7 +19,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='content',
             name='media',
-            field=models.FileField(null=True, upload_to=content_manager.models.file_path, blank=True, storage=content_manager.storage.OverwritesStorage()),
+            field=models.FileField(null=True, blank=True, upload_to='', storage=content_manager.storage.OverwritesStorage()),
             preserve_default=True,
         ),
     ]

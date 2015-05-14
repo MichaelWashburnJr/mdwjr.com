@@ -1,5 +1,34 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from content_manager.models import Content
+from django.contrib import auth
+
+def login(request):
+    """
+    Log in the user.
+    """
+    if request.user.is_authenticated():
+        return redirect(request.POST.get('next','index'))
+    next = request.POST.get('next')
+    if request.method == "POST":
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect(request.POST.get('next','index'))
+        else:
+            return render(request, "login.html", {"login_failed": True})
+
+    return render(request, "login.html")
+
+def logout(request):
+    """
+    Log out the user.
+    """
+    if request.user.is_authenticated():
+        auth.logout(request)
+    return redirect("index")
 
 def index(request):
     """

@@ -13,6 +13,12 @@ class Page(models.Model):
     def __str__(self):
         return self.page
 
+    def get_content(self):
+        """
+        Return all content objects on this page.
+        """
+        return Content.objects.filter(page=self)
+
 class Content(models.Model):
     """
     This is a container for one piece of 'content'.
