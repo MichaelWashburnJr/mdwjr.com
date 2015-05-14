@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Content Form{% endblock title %}
+{% block content %}
+<div class="container">
+
+    {% if failure %}
+    <div class="alert alert-danger">
+        There were errors. Please fix the highlighted fields and submit the form again.
+    </div>
+    {% endif %}
+
+    <form action="{% url 'cm:edit_content' id %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {% for field in form %}
+                <!-- Do something special for the media part of the form. -->
+                {{ field.label_tag }}
+                <div class="entry {% if field.errors.0 %}entry-error{% endif %}">
+                    {{ field }}
+                    <div class="text-danger">{{ field.errors.0 }}</div>
+                </div>
+            {% endfor %}
+        </div>
+        <br></br>
+        <div class="btn-group pull-right">
+            <button class="btn btn-danger" type="submit" name="delete">
+                Delete
+            </button>
+            <button class="btn btn-primary" type="submit" name="submit">
+                Submit
+            </button>
+        </div>
+        
+    </form>
+    
+</div>
+
+{% endblock content %}

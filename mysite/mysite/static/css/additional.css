@@ -197,4 +197,11 @@ body{
   box-shadow: none;
   width: 20px;
 }
+
+.entry input[type="file"]{
+  box-shadow: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
 /* end of bootstrap form emulation */
