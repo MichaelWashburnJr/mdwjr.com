@@ -2,6 +2,7 @@ activate
 restart
 settings.py
 *.db
+mysite/mysite/static/media/*
 
 ###############################################################################
 #### PYTHON IGNORES

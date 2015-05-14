@@ -20,7 +20,7 @@ class Content(models.Model):
 	name = models.CharField(max_length=30, unique=True)
 	body = models.TextField(blank=True,null=True)
 	page = models.ForeignKey(Page, related_name='content_set')
-	#media_file = models.FileField(blank=True,null=True) #Needs MEDIA_ROOT set
+	media_file = models.FileField(blank=True,null=True)
 
 	def __str__(self):
 		return self.name

@@ -17,4 +17,5 @@ def resume(request):
 	"""
 	The resume page does not implement the content manager yet.
 	"""
-	return render(request, 'resume.html')
+	resume = get_object_or_404(Content, name='resume')
+	return render(request, 'resume.html', {'resume_content' : resume})
