@@ -21,13 +21,13 @@
     {% for page in pages %}
     <div class="row">
         <div class="btn-group btn-group-vertical" style="width: 100%;">
-            <button class="btn btn-primary btn-lg btn-block" href="{% url 'cm:edit_page' page.id %}">
+            <a class="btn btn-primary btn-lg btn-block" href="{% url 'cm:edit_page' page.id %}">
                 {{page|title}}
-            </button>
+            </a>
             {% for content in page.get_content %}
-                <button class="btn btn-default btn-md btn-block" href="{% url 'cm:edit_content' content.id %}">
+                <a class="btn btn-default btn-md btn-block" href="{% url 'cm:edit_content' content.id %}">
                     {{content}}
-                </button>
+                </a>
             {% endfor %}
         </div>
     </div>
