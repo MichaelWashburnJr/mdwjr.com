@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>
+        {% block title %}Michael Washburn Jr{% endblock title %}
+    </title>
+    <meta name="description" content="{% block description %}{% endblock description %}"/>
+    <meta name="keywords" content="{% block keywords %}{% endblock keywords %}Micael Washburn Jr Software Engineer RIT Rochester Institute Technology"/>
+    
+    <!-- head_tags.html -->
+    {% include 'parts/head_tags.html' %}
+    {% block head %}{% endblock head %}
+	 
+</head>
+
+<!-- nav.html -->
+{% include 'parts/nav.html' %}
+ 
+<body id="{% block id %}{% endblock id %}">
+
+    {% block content %}{% endblock content %}
+
+    <!--foot_tags.html-->
+    {% include 'parts/foot_tags.html' %}
+
+    {% block scripts %} {% endblock scripts %}
+
+</body>
+ 
+</html>

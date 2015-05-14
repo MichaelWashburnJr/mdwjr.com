@@ -1,0 +1,123 @@
+body{
+	padding-top: 70px;
+	padding-bottom: 20px;
+}
+
+.font-large{
+	font-size: 14pt;
+}
+
+.label-md {
+	font-size: 12pt;
+
+}
+
+.label-border {
+	border: 1px solid rgb(90, 90, 90);
+}
+
+.thumbnail img{
+	height: auto;
+	width: 100%; 
+}
+
+.self{
+	max-width: 210px;
+	max-height: 210px;
+}
+
+.badge-small{
+	display: none;
+}
+
+/* Index */
+.row span{
+	vertical-align: middle;
+}
+
+/* Resume */
+#resume {
+	overflow-y: hidden;
+	padding-bottom: 0px;
+}
+
+#resume object {
+	position: absolute;
+	top: 0;
+	bottom: 0;	
+	margin-top: 50px;
+	padding-bottom: 50px;
+	height: 100%;
+	width: 100%;
+}
+
+/* btn-list styles used in project/post list */
+.btn-tile {
+	border-radius: 0px;
+	/* sizes change per screen size */
+	margin-right: 20px;
+	margin-top: 20px;
+
+	padding-top: 50px;
+	padding-bottom: 55px;
+	min-width: 300px;
+
+}
+
+.btn-tile:hover {
+	z-index: 5;
+	margin-left: -5px;
+	margin-top: 15px;
+	padding-bottom: 65px;
+	min-width: 320px;
+	/* shadow */
+	-webkit-box-shadow: -4px 3px 10px 0px rgba(0,0,0,0.33);
+	-moz-box-shadow: -4px 3px 10px 0px rgba(0,0,0,0.33);
+	box-shadow: -4px 3px 10px 0px rgba(0,0,0,0.33);
+}
+
+/* Tags hover effect */
+.tags {
+	text-align: center;
+	margin-right: 25px;
+}
+
+.tag {
+	margin-top: 10px;
+	margin-right: -25px;
+	-webkit-transition: all 250ms ease-in-out;
+	-moz-transition: all 250ms ease-in-out;
+	-o-transition: all 250ms ease-in-out;
+	transition: all 250ms ease-in-out;
+}
+
+.btn-tile:hover .tags .tag {
+	margin-right: 10px;
+}
+
+@media only screen and (max-width: 768px){
+	.thumbnail img{
+		height: auto;
+		width: 100%;
+	}
+
+	.btn-tile {
+		padding-top: 25px;
+		padding-bottom: 35px;
+	}
+}
+
+@media only screen and (max-width: 500px){
+	.badge-small{
+		display: block;
+	}
+	.badge-large{
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 400px){
+	.tiny-stretch{
+		width: 100%;
+	}
+}
