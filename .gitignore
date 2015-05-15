@@ -3,6 +3,7 @@ restart
 settings.py
 *.db
 mysite/mysite/static/media/*
+*sublime*
 
 ###############################################################################
 #### PYTHON IGNORES
