@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, redirect
 from content_manager.models import Content
 from django.contrib import auth
+from .utils import get_object_or_none
 
 def login(request):
     """
@@ -34,8 +35,8 @@ def index(request):
     """
     The index view. This only has one piece of content.
     """
-    about_me = get_object_or_404(Content, name='about_me')
-    my_heading = get_object_or_404(Content, name='my_heading')
+    about_me = get_object_or_none(Content, name='about_me')
+    my_heading = get_object_or_none(Content, name='my_heading')
 
     return render(request, 'index.html', {
             'about_me' : about_me,
@@ -46,5 +47,6 @@ def resume(request):
     """
     The resume page does not implement the content manager yet.
     """
-    resume = get_object_or_404(Content, name='resume')
+    resume = get_object_or_none(Content, name='resume')
     return render(request, 'resume.html', {'resume_content' : resume})
+    

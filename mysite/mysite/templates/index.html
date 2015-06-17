@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block title %}Michael Washburn Jr{% endblock title %}
 {% block content %}
+
 <div class="container">
+    {% if my_heading %}
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
             <div class="thumbnail self">
@@ -15,7 +17,9 @@
             </span>
         </div>
     </div>
+    {% endif %}
 
+    {% if about_me %}
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h2 class="panel-title">{{about_me.title}}</h2>
@@ -24,6 +28,7 @@
             {{about_me.body|safe}}
         </div>
     </div>
+    {% endif %}
 
     {% include 'parts/contact_bar.html' %}
     

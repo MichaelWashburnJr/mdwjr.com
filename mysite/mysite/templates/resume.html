@@ -3,7 +3,9 @@
 {% block id %}resume{% endblock id %}
 {% block content %}
 
+{% if resume_content %}
 <object data="{{resume_content.media.url}}" type="application/pdf">
 </object>
+{% endif %}
 
 {% endblock content %}
