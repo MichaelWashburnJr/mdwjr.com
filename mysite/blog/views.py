@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from blog.forms import PostForm, TagForm
+from blog.models import Post, Tag
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import Http404
-from blog.models import Post, Tag
-from blog.forms import PostForm, TagForm
+from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
 ###############################################################################
@@ -57,10 +58,57 @@ def post_info(request, slug):
 # Form Views
 ###############################################################################
 
+@login_required
+def edit_tags(request):
+    """
+    Form to create a new blog tag.
+    """
+    if not request.user.is_staff:
+        raise Http404
+
+    tags = list(Tag.get_all())
+    edit_forms = []
+    if request.method == "GET":
+        edit_forms = [TagForm(prefix=tag.id, instance=tag) for tag in tags]
+        add_form = TagForm()
+    elif request.method == "POST":
+        #Process the Forms
+        if "delete-tag" in request.POST:
+            tag = get_object_or_404(Tag,id=request.POST["delete-tag"])
+            tag.delete()
+            return redirect('blog:edit_tags')
+            
+        #Add tag if necessary
+        add_form = TagForm(request.POST)
+        if "add-tag" in request.POST:
+            if add_form.is_valid():
+                add_form.save()
+                return redirect('blog:edit_tags')
+
+        #Save edits
+        edit_forms = [TagForm(request.POST, prefix=tag.id, instance=Tag()) for tag in tags]
+        if "save-tags" in request.POST:
+            #Save all te edit forms
+            for i in range(len(tags)):
+                if edit_forms[i].is_valid():
+                    tag = edit_forms[i].save(commit=False)
+                    tags[i].name = tag.name
+                    tags[i].slug = tag.slug
+                    tags[i].save()
+
+    return render(request, 'tag_form.html', {
+        'edit_forms' : edit_forms,
+        'add_form'   : add_form,
+        })
+
+@login_required
 def create_post(request):
     """
     Form to create a new blog post.
     """
+    if not request.user.is_staff:
+        raise Http404
+        
     failure = False
     if request.method == "POST":
         post_form = PostForm(request.POST)
@@ -80,10 +128,14 @@ def create_post(request):
             'action' : reverse('blog:create_post')
         })
 
+@login_required
 def edit_post(request, slug):
     """
     Form to edit a blog post.
     """
+    if not request.user.is_staff:
+        raise Http404
+        
     failure = False
     post = get_object_or_404(Post, slug=slug)
     if request.method == "POST":

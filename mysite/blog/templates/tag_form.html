@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}Tag Form{% endblock title %}
+{% block content %}
+<div class="container">
+
+  {% if failure %}
+  <div class="alert alert-danger">
+    There were errors. Please fix the highlighted fields and submit the form again.
+  </div>
+  {% endif %}
+
+  <form class="form-inline col-md-12" action="{% url 'blog:edit_tags' %}" method="POST">
+    {% csrf_token %}
+
+    <h1>Edit Tags</h1>
+    <hr class="col-md-12 row"/>
+
+    {% for form in edit_forms %}
+    <div class="form-group col-md-12 row container" style="margin-bottom: 20px;">
+
+      {% for field in form %}
+      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{ field.label_tag }}</div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 entry {% if field.errors.0 %}entry-error{% endif %}">
+        {{ field }}
+        <div class="text-danger">{{ field.errors.0 }}</div>
+      </div>
+      {% endfor %}
+
+      <button class="btn btn-danger pull-right" type="submit" name="delete-tag" value="{{form.prefix}}">
+        <span class="glyphicon glyphicon-remove"></span>
+      </button>      
+    </div>
+    {% endfor %}
+
+    <div class="form-group col-md-12 row container" style="margin-bottom: 20px;">
+      {% for field in add_form %}
+      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{ field.label_tag }}</div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 entry {% if field.errors.0 %}entry-error{% endif %}">
+        {{ field }}
+        <div class="text-danger">{{ field.errors.0 }}</div>
+      </div>
+      {% endfor %}
+      <button class="btn btn-success pull-right" type="submit" name="add-tag">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+    </div>
+
+    <div class="col-md-12 row container">
+      <button class="btn btn-primary pull-right" type="submit" name="save-tags">
+        <span class="glyphicon glyphicon-save"></span> Save Edits
+      </button>
+    </div>
+
+  </form>
+
+</div>
+
+{% endblock content %}

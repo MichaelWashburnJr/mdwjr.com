@@ -11,10 +11,17 @@
 <div class="container">
 
     {% if request.user.is_staff %}
-    <div class="row">
-        <a class="btn btn-small btn-success pull-right" href="{% url 'blog:create_post' %}">
-        <span class="glyphicon glyphicon-plus" ></span>
-        </a>
+    <div class="btn-toolbar pull-right">
+        <div class="btn-group">
+            <a class="btn btn-small btn-info" href="{% url 'blog:edit_tags' %}">
+                <span class="glyphicon glyphicon-edit" ></span> Edit Tags
+            </a>
+        </div>
+        <div class="btn-group">
+            <a class="btn btn-small btn-success" href="{% url 'blog:create_post' %}">
+                <span class="glyphicon glyphicon-plus" ></span> Add Post
+            </a>
+        </div>
     </div>
     {% endif %}
 
