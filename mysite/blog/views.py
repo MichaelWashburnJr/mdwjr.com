@@ -79,15 +79,17 @@ def edit_tags(request):
             return redirect('blog:edit_tags')
             
         #Add tag if necessary
-        add_form = TagForm(request.POST)
         if "add-tag" in request.POST:
+            add_form = TagForm(request.POST)
             if add_form.is_valid():
                 add_form.save()
                 return redirect('blog:edit_tags')
+        else:
+            add_form = TagForm()
 
         #Save edits
-        edit_forms = [TagForm(request.POST, prefix=tag.id, instance=Tag()) for tag in tags]
         if "save-tags" in request.POST:
+            edit_forms = [TagForm(request.POST, prefix=tag.id, instance=Tag()) for tag in tags]
             #Save all te edit forms
             for i in range(len(tags)):
                 if edit_forms[i].is_valid():
@@ -95,6 +97,8 @@ def edit_tags(request):
                     tags[i].name = tag.name
                     tags[i].slug = tag.slug
                     tags[i].save()
+        else:
+            edit_forms = [TagForm(prefix=tag.id, instance=tag) for tag in tags]
 
     return render(request, 'tag_form.html', {
         'edit_forms' : edit_forms,

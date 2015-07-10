@@ -9,7 +9,6 @@ urlpatterns = patterns('',
     url(r'^login$', views.login, name='login'),
     url(r'^logout$', views.logout, name='logout'),
     url(r'^resume$', views.resume, name='resume'),
-    url(r'^admin/', include(admin.site.urls)),
     url(r'^blog/', include(blog_urls, namespace='blog')),
     url(r'^contentmanager/', include(content_manager_urls, namespace='cm')),
     )
