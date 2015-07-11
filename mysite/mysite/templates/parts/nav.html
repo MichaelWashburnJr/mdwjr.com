@@ -20,7 +20,7 @@
                 <li><a href="{% url 'blog:project_list' %}">Projects</a></li>
                 <li><a href="{% url 'blog:list' %}">Blog</a></li>
             </ul>
-            {% if request.user%}
+            {% if request.user.is_staff %}
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{% url 'cm:panel' %}">Content Manager</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
