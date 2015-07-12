@@ -8,9 +8,9 @@
 <div class="container col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
 
     {% if request.user.is_staff %}
-        <a class="btn btn-small btn-success pull-right" href="{% url 'blog:edit_post' post.slug %}">
-            <span class="glyphicon glyphicon-pencil" ></span> Edit
-        </a>
+    <a class="btn btn-small btn-success pull-right" href="{% url 'blog:edit_post' post.slug %}">
+        <span class="glyphicon glyphicon-pencil" ></span> Edit
+    </a>
     {% endif %}
 
     <div class="title page-header">

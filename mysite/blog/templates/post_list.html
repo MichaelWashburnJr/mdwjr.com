@@ -10,29 +10,30 @@
 
 <div class="container">
 
-    {% if request.user.is_staff %}
-    <div class="btn-toolbar pull-right">
-        <div class="btn-group">
-            <a class="btn btn-small btn-info" href="{% url 'blog:edit_tags' %}">
-                <span class="glyphicon glyphicon-edit" ></span> Edit Tags
-            </a>
-        </div>
-        <div class="btn-group">
-            <a class="btn btn-small btn-success" href="{% url 'blog:create_post' %}">
-                <span class="glyphicon glyphicon-plus" ></span> Add Post
-            </a>
-        </div>
-    </div>
-    {% endif %}
-
     <div class="row">
-        <div class="btn-group" role="group">
-            <button class="btn btn-primary is-checked filter" data-filter="*">All</button>
-            {% for tag in tags %}
-            <button class="btn btn-primary is-checked filter" data-filter=".{{tag.slug}}">{{tag}}</button>
-            {% endfor %}
+        {% if request.user.is_staff %}
+        <div class="pull-right col-lg-3 col-md-4 col-sm-4 col-xs-12" style="margin-bottom: 10px;">
+            <div class="btn-toolbar pull-right">
+                <a class="btn btn-small btn-info" href="{% url 'blog:edit_tags' %}">
+                    <span class="glyphicon glyphicon-edit" ></span> Edit Tags
+                </a>
+                <a class="btn btn-small btn-success" href="{% url 'blog:create_post' %}">
+                    <span class="glyphicon glyphicon-plus" ></span> Add Post
+                </a>
+            </div>
+        </div> 
+        {% endif %}
+
+        <div class="pull-left col-lg-9 col-md-8 col-sm-8 col-xs-12">
+            <div class="btn-toolbar" role="group">
+                <button class="btn btn-primary is-checked filter" style="margin-bottom: 10px;" data-filter="*">All</button>
+                {% for tag in tags %}
+                <button class="btn btn-primary is-checked filter" style="margin-bottom: 10px;" data-filter=".{{tag.slug}}">{{tag}}</button>
+                {% endfor %}
+            </div>
         </div>
     </div>
+
     <div class="row" id="container">
         {% for post in posts %}
         <a class="btn btn-default btn-tile item {{post.tags_to_str}}"
@@ -50,7 +51,6 @@
                 {% endif %}
             {% endfor %}
             </div>
-
             
         </a>
         {% endfor %}
