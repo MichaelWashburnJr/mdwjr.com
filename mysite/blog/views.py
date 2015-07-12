@@ -147,7 +147,7 @@ def edit_post(request, slug):
 
         if post_form.is_valid():
             post = post_form.save()
-            return redirect('blog:list')
+            return redirect('blog:post', post.slug)
         else:
             failure = True
             return render(request, 'post_form.html', {'form' : post_form, 'failure' : True})
