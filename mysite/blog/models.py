@@ -18,7 +18,7 @@ class Tag(models.Model):
         """
         Return all tags found in a query set of posts
         """
-        return Tag.objects.filter(posts__in=post_queryset)
+        return Tag.objects.filter(posts__in=post_queryset).distinct()
 
 
 class Post(models.Model):
