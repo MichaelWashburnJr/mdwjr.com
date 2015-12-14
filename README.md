@@ -1,8 +1,7 @@
 mdwjr.com
 ==============
-This is my personal website. Most of this website consists of static HTML pages. I use some light PHP for templating (including files), and the Django web framework for managing projects and the blog.
+This is my personal website. I built this website using the Django web framework. Using Django I built a lightweight blog and content management system to make updating my website as easy as possible for me.
 
 **Versions:**
 - Python 3.4
 - Django 1.7
-- PHP 5
