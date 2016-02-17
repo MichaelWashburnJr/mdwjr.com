@@ -1,7 +1,12 @@
-mdwjr.com
-==============
-This is my personal website. I built this website using the Django web framework. Features of this project include a lightweight blog and a content management system, which makes keeping my website up to date easy.
+#mdwjr.com
+This is a rebuild of my personal website, written using the pystache implementation of the Mustache templating framework.
+
+##Build Instructions
+```
+pip install pystache
+python build.py
+```
 
 **Versions:**
-- Python 3.4
-- Django 1.7
+- Python 3.5
+- Mustache(5)

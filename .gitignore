@@ -1,10 +1,3 @@
-activate
-restart
-settings.py
-*.db
-mysite/mysite/static/media/*
-*sublime*
-
 ###############################################################################
 #### PYTHON IGNORES
 ###############################################################################
@@ -57,4 +50,3 @@ coverage.xml
 
 # Django stuff:
 *.log
-

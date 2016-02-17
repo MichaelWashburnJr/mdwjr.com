@@ -1,0 +1,70 @@
+<!-- Michael Washburn Jr's Personal Website -->
+{{!
+
+  Context Structure:
+  {
+    'RESOURCE_DIR' : RESOURCE_BUILD_DIR
+    'title' : "Page Title",
+    'description' : "Page Description",
+    'keywords' : "word1,word2,word3",
+    'css' : [
+      {'file' : "path/to/stylesheet1.css"},
+      {'file' : "path/to/stylesheet2.css"},
+    ],
+    'scripts' : [
+      {'file' : "path/to/script1.js"},
+      {'file' : "path/to/script2.js"},
+    ],
+    'mustache_partial_name' : {
+      'context_key1' : "context_value1",
+      'context_key2' : "context_value2",
+    }
+  }
+
+}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{{RESOURCE_DIR}}/vendor/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{RESOURCE_DIR}}/vendor/bootstrap/css/bootstrap-theme.min.css"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{RESOURCE_DIR}}/custom/css/style.css"/>
+
+    {{! Get Additional CSS from context }}
+    {{#css}}
+      <link rel="stylesheet" type="text/css" href="{{file}}"/>
+    {{/css}}
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{RESOURCE_DIR}}/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="{{RESOURCE_DIR}}/favicon.ico" type="image/x-icon"/>
+
+    {{! Get title, description, and additional keywords from context }}
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}"/>
+    <meta name="Software,Engineer,Washburn,RIT,{{keywords}}"/>
+  </head>
+
+  <body>
+    {{! Add partial includes for all pages using this layout here }}
+    {{#home}}
+      {{>home}}
+    {{/home}}
+  </body>
+
+  <!-- Scripts -->
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="{{RESOURCE_DIR}}/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  {{! Get additional scripts from context }}
+  {{#scripts}}
+    <script src="{{file}}"></script>
+  {{/scripts}}
+</html>
