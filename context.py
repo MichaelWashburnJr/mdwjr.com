@@ -17,7 +17,10 @@ The following example shows how to define a page in the page_map.
             <page> : {
                 'template' : <tempplate_file>,
                 'path' : <path_to_output>
-                'context' : <page_context>
+                'context' : {
+                    <page> : True,
+                    ...
+                }
             }
         }
 """
@@ -28,6 +31,7 @@ page_map = {
         'template' : "layout.mustache",
         'path' : "index.html",
         'context' : {
+            'home'  : True,
             'RESOURCE_DIR' : RESOURCE_BUILD_DIR,
             'title' : "Michael Washburn Jr",
             'description' : "Michael Washburn's personal website",
@@ -35,6 +39,7 @@ page_map = {
             'css' : [
             ],
             'scripts' : [
+                {'file' : RESOURCE_BUILD_DIR + "/custom/js/home.js"}
             ]
         }
     }
