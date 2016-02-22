@@ -37,6 +37,7 @@ page_map = {
             'description' : "Michael Washburn's personal website",
             'keywords' : "",
             'css' : [
+                {'file' : RESOURCE_BUILD_DIR + "/custom/css/home.css"}
             ],
             'scripts' : [
                 {'file' : RESOURCE_BUILD_DIR + "/custom/js/home.js"}

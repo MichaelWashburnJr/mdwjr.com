@@ -12,7 +12,15 @@ body {
   margin-top: 50px;
 }
 
-.btn-default {
+.btn {
+  -webkit-transition: background-color 1s linear;
+  -moz-transition: background-color 1s linear;
+  -o-transition: background-color 1s linear;
+  -ms-transition: background-color 1s linear;
+  transition: background-color 1s linear;
+}
+
+.btn:hover {
   -webkit-transition: background-color 1s linear;
   -moz-transition: background-color 1s linear;
   -o-transition: background-color 1s linear;
@@ -23,45 +31,28 @@ body {
 .btn-default:hover {
   color: #002a4d;
   background-color: #FFFFFF;
-  -webkit-transition: background-color 1s linear;
-  -moz-transition: background-color 1s linear;
-  -o-transition: background-color 1s linear;
-  -ms-transition: background-color 1s linear;
-  transition: background-color 1s linear;
 }
 
-/* Styles for Banners (full width image content) */
-.mdw-banner {
-  width: 100%;
-  overflow: hidden;
-  border-bottom: 10px solid #adadad;
+.btn-primary {
+  border-color: #000000;
 }
 
-.mdw-banner img {
-  height: 500px;
-  width: auto;
-  background-position: center center;
-  opacity: .8;
-  border-top: 1px;
-  border-bottom: 1px;
+.btn-primary:hover {
+  background-color: #FFFFFF;
 }
 
 /* Row with content, adds standard padding and borders */
 .mdw-content-row {
-  padding-top: 80px;
-  padding-bottom: 80px;
   border-top: 10px solid #adadad;
-  border-bottom: 10px solid #adadad;
 }
 
 /* Title/Subtitle styles */
 .mdw-title {
-  margin-bottom: 0;
 }
 
 .mdw-subtitle {
-  margin-top: 10px;
-  margin-bottom: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
   color: #909090;
   font-weight: normal;
 }
@@ -71,93 +62,31 @@ body {
   text-align: center;
 }
 
-/* Profile Group Syles */
-.mdw-profile-text-group {
-  margin-top: 10px;
+/*
+ * Feature Group Syles
+ * Feature groups have an image on the left, and content on the right.
+ */
+.mdw-feature-text-group {
+  margin-top: 20px;
   margin-left: 40px;
   text-align: left;
 }
 
-.mdw-profile {
+.mdw-feature-group {
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
-  padding: 2%;
   border-radius: 10px;
   border: 1px solid #e0e0e0;
+  padding: 20px;
 }
 
-/* Landing View */
-
-#landing-view {
-  position: absolute;
-  left: 0;
-  top: 0;
-  min-height: 675px;
-  height: 100%;
-  width: 100%;
-  display: table;
-  background: url(../images/code.jpg) center center no-repeat fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.mdw-feature-group img {
+  max-height: 420px;
 }
 
-#landing-view .btn {
-  position: absolute;
-  bottom: 0;
-  right:0;
-  z-index: 1;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  font-size: 40px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-#landing-view #cog-left,
-#landing-view #cog-right {
-  height: 400px;
-  width: 400px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 1;
-}
-
-#landing-view #cog-right {
-  margin-top: -25px;
-  margin-left: -65px;
-  /* Spin clockwise */
-  -webkit-animation:spin_cw 10s linear infinite;
-  -moz-animation:spin_cw 10s linear infinite;
-  animation:spin_cw 10s linear infinite;
-}
-@-moz-keyframes spin_cw { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin_cw { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin_cw { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-#landing-view #cog-left {
-  margin-top: -295px;
-  margin-left: -335px;
-  -ms-transform: rotate(deg); /* IE 9 */
-  -webkit-transform: rotate(deg); /* Chrome, Safari, Opera */
-  transform: rotate(deg);
-  /* Spin counter-clockwise */
-  -webkit-animation:spin_ccw 10s linear infinite;
-  -moz-animation:spin_ccw 10s linear infinite;
-  animation:spin_ccw 10s linear infinite;
-}
-@-moz-keyframes spin_ccw { 100% { -moz-transform: rotate(-360deg); } }
-@-webkit-keyframes spin_ccw { 100% { -webkit-transform: rotate(-360deg); } }
-@keyframes spin_ccw { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
-
-#profile {
-  position: absolute;
-  top: 100%;
-  width: 100%;
+.mdw-feature-group p {
+  padding-top: 20px;
+  max-width: 550px;
+  font-size: 20px;
 }

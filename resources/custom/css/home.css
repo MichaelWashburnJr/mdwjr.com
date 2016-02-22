@@ -1,0 +1,128 @@
+/* Landing View */
+
+#landing-view {
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-height: 675px;
+  height: 100%;
+  width: 100%;
+  display: table;
+  background: url(../images/code.jpg) center center no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#landing-view h1 {
+  position: absolute;
+  top:30px;
+  left:0px;
+  padding: 10px;
+  background-color: rgba(25,25,25,.5);
+  color: white;
+}
+
+#landing-view .btn {
+  position: absolute;
+  bottom: 0;
+  right:0;
+  z-index: 1;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-size: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#landing-view #cog-left,
+#landing-view #cog-right {
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+}
+
+#landing-view #cog-right {
+  margin-top: -25px;
+  margin-left: -65px;
+  /* Spin clockwise */
+  -webkit-animation:spin_cw 10s linear infinite;
+  -moz-animation:spin_cw 10s linear infinite;
+  animation:spin_cw 10s linear infinite;
+}
+@-moz-keyframes spin_cw { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin_cw { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin_cw { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+#landing-view #cog-left {
+  margin-top: -295px;
+  margin-left: -335px;
+  -ms-transform: rotate(deg); /* IE 9 */
+  -webkit-transform: rotate(deg); /* Chrome, Safari, Opera */
+  transform: rotate(deg);
+  /* Spin counter-clockwise */
+  -webkit-animation:spin_ccw 10s linear infinite;
+  -moz-animation:spin_ccw 10s linear infinite;
+  animation:spin_ccw 10s linear infinite;
+}
+@-moz-keyframes spin_ccw { 100% { -moz-transform: rotate(-360deg); } }
+@-webkit-keyframes spin_ccw { 100% { -webkit-transform: rotate(-360deg); } }
+@keyframes spin_ccw { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
+
+
+#content-area {
+  position: absolute;
+  top: 100%;
+  left:0;
+  width: 100%;
+}
+
+#profile {
+  padding: 40px;
+}
+
+#resume {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin: auto;
+  background: url(../images/mountains.jpg) center center no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#resume .btn {
+  font-size: 24px;
+}
+
+#contact {
+  padding: 50px;
+}
+
+#contact h2 {
+  margin: 0;
+  padding: 0;
+}
+
+#contact .btn span {
+  font-size 26px;
+}
+
+#contact .btn-default {
+  background-color: #003c6e;
+  font-weight: normal;
+}
+
+#contact .btn-default:hover {
+  border-color: #002a4d;
+  color: #002a4d;
+  background-color: white;
+}
