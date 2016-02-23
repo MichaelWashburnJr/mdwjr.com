@@ -14,12 +14,12 @@ import time
 
 #local imports
 from settings import *
-from context import page_map
+from context import page_map, blog_list_context, blog_map
 
 def make_dirs():
     """Create any directories needed to build if they do not exist already"""
     # make a list of all directories needed. Note: RESOURCE_BUILD_DIR is done seperately
-    directories = [BUILD_DIR]
+    directories = [BUILD_DIR, os.path.join(BUILD_DIR, "blog")]
     # get each directory that pages will be built to
     for page in page_map.keys():
         path = os.path.dirname(os.path.join(BUILD_DIR,page_map[page]['path']))
@@ -50,10 +50,11 @@ def clean(retry=True):
         shutil.rmtree(BUILD_DIR)
 
 def build_pages():
-    """Build each page defined in the page_map"""
+    """Build each page defined in the page_map and the blog posts defined in blog_map"""
     # Change to mustache directory for rendering
     os.chdir(MUSTACHE_DIR)
     r = pystache.Renderer()
+    # Build each regular page
     for page in page_map.keys():
         # grab values from the page_map
         template = os.path.join(MUSTACHE_DIR, page_map[page]['template'])
@@ -64,6 +65,17 @@ def build_pages():
         # save the output to the file
         f = open(path, "w")
         f.write(output.replace("\r\n", "\n"))
+        f.close()
+    # Build each blog post, and the Blog List
+    for blog in blog_map.keys():
+
+        # Add the blog info to the blog list context
+        blog_list_context['posts'].append(blog_map[blog])
+    # Render the blog list
+    output = r.render_path(os.path.join(MUSTACHE_DIR,"layout.mustache"), blog_list_context)
+    f = open(os.path.join(BUILD_DIR, "blog", "index.html"), "w")
+    f.write(output.replace("\r\n", "\n"))
+    f.close()
     # Change back to the base dir
     os.chdir(BASE_DIR)
 

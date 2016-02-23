@@ -8,7 +8,7 @@
   height: 100%;
   width: 100%;
   display: table;
-  background: url(../images/code.jpg) center center no-repeat fixed;
+  background: url(../images/code.jpg) top center no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

@@ -24,7 +24,7 @@ The following example shows how to define a page in the page_map.
             }
         }
 """
-from settings import RESOURCE_URL
+from settings import RESOURCE_URL, MUSTACHE_DIR
 import os
 
 page_map = {
@@ -32,7 +32,7 @@ page_map = {
         'template' : "layout.mustache",
         'path' : "index.html",
         'context' : {
-            'home'  : True,
+            'home' : True,
             'RESOURCE_DIR' : RESOURCE_URL,
             'title' : "Michael Washburn Jr",
             'description' : "Michael Washburn's personal website",
@@ -49,7 +49,7 @@ page_map = {
         'template' : "layout.mustache",
         'path' : os.path.join("resume","index.html"),
         'context' : {
-            'resume'  : True,
+            'resume' : True,
             'RESOURCE_DIR' : RESOURCE_URL,
             'title' : "My Resume",
             'description' : "Michael Washburn's Resume",
@@ -61,4 +61,59 @@ page_map = {
             ]
         }
     },
+}
+
+blog_list_context = {
+    'blog_list' : True,
+    'RESOURCE_DIR' : RESOURCE_URL,
+    'title' : "Blog",
+    'description' : "Michael Washburn's Blog",
+    'keywords' : "blog",
+    'posts' : [],
+    'css' : [
+        {'file' : RESOURCE_URL + "/custom/css/blog_list.css"}
+    ],
+}
+
+blog_map = {
+    'blog_django-server-setup' : {
+        'template' : "layout.mustache",
+        'path' : os.path.join("blog","django-server-setup","index.html"),
+        'url' : "/blog/django-server-setup/",
+        'content_file' : os.path.join(MUSTACHE_DIR, "blog_posts", "django-server-setup.html"),
+        'context' : {
+            'blog_post' : True,
+            'RESOURCE_DIR' : RESOURCE_URL,
+            'title' : "Django Server Setup",
+            'description' : "A tutorial for setting up a Django server on Ubuntu using NGINX, \
+                             PostgreSQL, and Gunicorn.",
+            'keywords' : "turorial, django, nginx, postgres, ubuntu, linux ",
+            'date' : "April 7, 2015",
+            'content' : "",
+            'css' : [
+            ],
+            'scripts' : [
+            ]
+        }
+    },
+    'blog_django-server-setup2' : {
+        'template' : "layout.mustache",
+        'path' : os.path.join("blog","django-server-setup2","index.html"),
+        'url' : "/blog/django-server-setup/",
+        'content_file' : os.path.join(MUSTACHE_DIR, "blog_posts", "django-server-setup.html"),
+        'context' : {
+            'blog_post' : True,
+            'RESOURCE_DIR' : RESOURCE_URL,
+            'title' : "Django Server Setup",
+            'description' : "A tutorial for setting up a Django server on Ubuntu using NGINX, \
+                             PostgreSQL, and Gunicorn.",
+            'keywords' : "turorial, django, nginx, postgres, ubuntu, linux ",
+            'date' : "April 7, 2015",
+            'content' : "",
+            'css' : [
+            ],
+            'scripts' : [
+            ]
+        }
+    }
 }
