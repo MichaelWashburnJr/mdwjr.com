@@ -84,9 +84,19 @@
   width: 100%;
 }
 
+/*
+ * Profile Styles
+ */
+
 #profile {
+  margin: 0;
+  width: 100%;
   padding: 40px;
 }
+
+/*
+ * Resume Styles
+ */
 
 #resume {
   padding-top: 100px;
@@ -103,26 +113,88 @@
   font-size: 24px;
 }
 
+#resume .btn:hover {
+  background-color: rgba(255,255,255,.8);
+}
+
 #contact {
   padding: 50px;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100%;
+  margin: 0;
 }
+
+/*
+ * Contact Info Styles
+ */
 
 #contact h2 {
   margin: 0;
   padding: 0;
 }
 
-#contact .btn span {
-  font-size 26px;
-}
-
 #contact .btn-default {
-  background-color: #003c6e;
-  font-weight: normal;
+  font-size: 16px;
+  text-shadow: none;
 }
 
 #contact .btn-default:hover {
-  border-color: #002a4d;
-  color: #002a4d;
   background-color: white;
+}
+
+/* Social Button Colors */
+
+#Facebook-btn {
+  background-color: #3b5998;
+}
+
+#Facebook-btn:hover {
+  border-color: #3b5998;
+  color: #3b5998;
+}
+
+#Twitter-btn {
+  background-color: #55acee;
+}
+
+#Twitter-btn:hover {
+  border-color: #55acee;
+  color: #55acee;
+}
+
+#LinkedIn-btn {
+  background-color: #007bb6;
+}
+
+#LinkedIn-btn:hover {
+  border-color: #007bb6;
+  color: #007bb6;
+}
+
+#GooglePlus-btn {
+  background-color: #dd4b39;
+}
+
+#GooglePlus-btn:hover {
+  border-color: #dd4b39;
+  color: #dd4b39;
+}
+
+#Email-btn {
+  background-color: #2fa4e7;
+}
+
+#Email-btn:hover {
+  border-color: #2fa4e7;
+  color: #2fa4e7;
+}
+
+#Github-btn {
+  background-color: #444444;
+}
+
+#Github-btn:hover {
+  border-color: #444444;
+  color: #444444;
 }
