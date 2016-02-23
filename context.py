@@ -24,7 +24,8 @@ The following example shows how to define a page in the page_map.
             }
         }
 """
-from settings import RESOURCE_BUILD_DIR
+from settings import RESOURCE_URL
+import os
 
 page_map = {
     'home' : {
@@ -32,16 +33,32 @@ page_map = {
         'path' : "index.html",
         'context' : {
             'home'  : True,
-            'RESOURCE_DIR' : RESOURCE_BUILD_DIR,
+            'RESOURCE_DIR' : RESOURCE_URL,
             'title' : "Michael Washburn Jr",
             'description' : "Michael Washburn's personal website",
             'keywords' : "",
             'css' : [
-                {'file' : RESOURCE_BUILD_DIR + "/custom/css/home.css"}
+                {'file' : RESOURCE_URL + "/custom/css/home.css"}
             ],
             'scripts' : [
-                {'file' : RESOURCE_BUILD_DIR + "/custom/js/home.js"}
+                {'file' : RESOURCE_URL + "/custom/js/home.js"}
             ]
         }
-    }
+    },
+    'resume' : {
+        'template' : "layout.mustache",
+        'path' : os.path.join("resume","index.html"),
+        'context' : {
+            'resume'  : True,
+            'RESOURCE_DIR' : RESOURCE_URL,
+            'title' : "My Resume",
+            'description' : "Michael Washburn's Resume",
+            'keywords' : "resume",
+            'css' : [
+                {'file' : RESOURCE_URL + "/custom/css/resume.css"}
+            ],
+            'scripts' : [
+            ]
+        }
+    },
 }

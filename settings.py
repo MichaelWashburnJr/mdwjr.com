@@ -18,3 +18,5 @@ MUSTACHE_DIR = os.path.join(BASE_DIR, 'mustache')
 RESOURCE_SOURCE_DIR = os.path.join(BASE_DIR, 'resources')
 # directory to copy resources to
 RESOURCE_BUILD_DIR = os.path.join(BUILD_DIR, 'rsc')
+# url to resources directory
+RESOURCE_URL = '/rsc'

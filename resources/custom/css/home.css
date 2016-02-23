@@ -198,3 +198,12 @@
   border-color: #444444;
   color: #444444;
 }
+
+/* Preload Images */
+#preload-mountains {
+  background: url(../images/mountains.jpg) no-repeat -9999px -9999px;
+}
+
+#preload-me {
+  background: url(../images/me.png) no-repeat -9999px -9999px;
+}
