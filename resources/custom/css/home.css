@@ -41,8 +41,8 @@
 
 #landing-view #cog-left,
 #landing-view #cog-right {
-  height: 400px;
-  width: 400px;
+  height: 300px;
+  width: 300px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -51,7 +51,7 @@
 
 #landing-view #cog-right {
   margin-top: -25px;
-  margin-left: -65px;
+  margin-left: -45px;
   /* Spin clockwise */
   -webkit-animation:spin_cw 10s linear infinite;
   -moz-animation:spin_cw 10s linear infinite;
@@ -62,8 +62,8 @@
 @keyframes spin_cw { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 #landing-view #cog-left {
-  margin-top: -295px;
-  margin-left: -335px;
+  margin-top: -225px;
+  margin-left: -245px;
   -ms-transform: rotate(deg); /* IE 9 */
   -webkit-transform: rotate(deg); /* Chrome, Safari, Opera */
   transform: rotate(deg);
