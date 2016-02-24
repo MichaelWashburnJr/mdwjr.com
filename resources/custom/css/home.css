@@ -111,10 +111,15 @@
 
 #resume .btn {
   font-size: 24px;
+  background-color: rgba(255,255,255,.8);
+  color: #003c6e;
+  border-color: #003c6e;
 }
 
 #resume .btn:hover {
-  background-color: rgba(255,255,255,.8);
+  background-color: rgba(0,60,110,.8);
+  color: #FFFFFF;
+  border-color: #FFFFFF;
 }
 
 #contact {
