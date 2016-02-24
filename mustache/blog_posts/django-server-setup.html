@@ -1,1 +1,191 @@
-TEST
+<p class="indent">
+This tutorial will show you how to serve a Django application by using PostgreSQL, Gunicorn, and NGinx on an Ubuntu server.  I created this tutorial because when I started configuring my server, I had a lot of trouble finding anything useful when it came to serving Django apps built in Python 3.  I found that virtually all the tutorials I could find still insisted on using Python 2.  So, this will show you how to turn your Python 3 Django app into a fully fledged website. This tutorial uses the following software with the corresponding versions:
+</p>
+<ul>
+  <li>Ubuntu 14.04.1 LTS</li>
+  <li>Nginx 1.4.6</li>
+  <li>Python 3.4.0</li>
+  <li>Gunicorn 19.3</li>
+</ul>
+The only thing that I am going to assume is that <b>you already have an up-to-date Ubutnu 14.04 server running</b>.  The rest of the tutorial will take you through each and every step.
+
+<h2>Install NGinx</h2>
+<p class="indent">
+NGinx (pronounced Engine-X), is a lightweight web server.  We will be using it to serve our static files and to proxy requests to Gunicorn.  To install NGinx, issue the following command:
+</p><pre>sudo apt-get install nginx</pre>
+<p></p>
+
+<h2>Install PostgreSQL</h2>
+<p class="indent">
+PostgreSQL is an open source database system that we will setup Django to use.  To install PostgreSQL, we first need to install some dependencies that Django requires to work with PostgreSQL.
+</p><pre>sudo apt-get install libpq-dev python-dev</pre>
+Then, install PostgreSQL with the following command:
+<pre>sudo apt-get install postgresql postgresql-contrib</pre>
+Now, you can switch to the postgres user with the following:
+<pre>sudo su - postgres</pre>
+Then create a new database:
+<pre>createdb mydb</pre>
+Additionally, you should create a new user also:
+<pre>createuser -P [username]</pre>
+Lastly, grant the new user access to the database:
+<pre>psql
+GRANT ALL PRIVILEGES ON DATABASE mydb TO username;
+\q
+logout
+</pre>
+<p></p>
+
+<h2>Setting Up Your Virtual Environment</h2>
+
+<h3>Create a new virtual environment</h3>
+<p class="indent">
+A Python virtual environment allows you to run different versions of Python on the same server.  It also has the benefit of allowing you to separate the dependencies of different apps, because they are completely different Python installations.  Change directories to the directory you want your virtual environment to be.  I've found that the recommended place to put your virtual environments is in <code>/opt/env/</code>, where <code>env/</code> contains one or many python virtual environments.
+</p><pre>cd /opt/env
+</pre>
+
+Starting in Python 3.3, a tool named venv, or pyvenv, has been being shipped with Python 3 installations.  However, Python 3.4 shipped with a broken version of pyvenv which leads to some errors when it tries installing things.  To counter this, we can install the virtual environment with the following commands, replacing the string "myvenv" with your chosen virtual environment folder name:
+
+<pre>pyvenv-3.4 --without-pip myvenv
+source ./myvenv/bin/activate
+wget https://pypi.python.org/packages/source/s/setuptools/setuptools-3.4.4.tar.gz
+tar -vzxf setuptools-3.4.4.tar.gz
+cd setuptools-3.4.4
+python setup.py install
+cd ..
+wget https://pypi.python.org/packages/source/p/pip/pip-1.5.6.tar.gz
+tar -vzxf pip-1.5.6.tar.gz
+cd pip-1.5.6
+python setup.py install
+cd ..
+</pre>
+In order to use the virtual environment, you need
+to activate it using the command <code>source ./myvenv/bin/activate</code>.  When activated, all python commands will execute through this virtual environment. To deactivate the virtual environment, run <code>deactivate</code>.
+<p></p>
+
+<p class="text-danger">
+Be careful using <code>sudo</code> when executing Python scripts meant to be run in your virtual environment. When you execute a python script with <code>sudo</code>, your virtual environment will not be active in the scope that the script is run in.  So it may actually be better to issue a <code>su</code> command first, activate the virtual environment, and then run the Python command.  Or better yet, set the permissions to your directories correctly so root access isn't needed.
+</p>
+
+<h3>Install Python Packages</h3>
+<p class="indent">
+First, make sure your virtual environment is activated.  If it is not, run <code>source ./myvenv/bin/activate</code>.  Then, install Django with:
+</p><pre>pip install django</pre>
+After Django successfully installs, install Gunicorn, the Python web server.
+<pre>pip install gunicorn</pre>
+Lastly, install the python connector for PostgreSQL.
+<pre>pip install psycopg2</pre>
+If your application has any other dependencies, you may as well take a minute now to install them.
+<p></p>
+
+<h2>Create a Django Project</h2>
+<p class="indent">
+If you would like to import an existing Django project, you should do so here.  However, if not, then create a new project.  The location of your project is entirely up to you.  From what I've found, it's recommended to put your django project in <code>/opt/env/myvenv/mysite</code>, where <code>mysite</code> is your Django project.  However, I like to put my projects in <code>/var/www/project_name/mysite</code>.  Anyways, first make sure the virtual environment is activated:
+</p><pre>source ./myvenv/bin/activate</pre>
+Then, create the new Django project:
+<pre>django-admin.py startproject mysite</pre>
+<p></p>
+<h3>Configure the Django Project</h3>
+<p>
+Edit settings.py to contain the following database settings:
+</p>
+<pre>
+DATABASES = {
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'mydb',
+    'USER': 'username',
+    'PASSWORD': 'password',
+    'HOST': 'localhost',
+    'PORT': ''
+  }
+}
+</pre>
+Now, sync the database by navigating to the same directory as your manage.py file, and running:
+<pre>python manage.py syncdb</pre>
+<p></p>
+
+<h2>Configure Gunicorn</h2>
+<p>
+Create a gunicorn_config.py file;  I like to place this at:<code>/opt/env/myvenv/gunicorn_config.py</code>.  Add the following:
+</p>
+<pre>
+command = '/opt/env/myvenv/bin/gunicorn'
+pythonpath = '/opt/env/myvenv/mysite'
+bind = '127.0.0.1:8001'
+workers = 3
+</pre>
+Save the file and run the following command to start Gunicorn with the above settings:
+<pre>/opt/env/myvenv/bin/gunicorn -c /opt/env/myvenv/gunicorn_config.py mysite.wsgi</pre>
+
+<h2>Configure NGinx</h2>
+<p>
+If NGinx is not already running, start it with:
+</p>
+<pre>sudo service nginx start</pre>
+Then, in your settings.py file, set your <code>STATIC_ROOT</code> to the path that you want to host static files at.  For me, this would be <code>/var/www/project_name/static</code>.  Now, we are going to configure the site in Nginx.  Create a new file <code>/etc/nginx/sites-available/project_name</code> and edit it to contain the following:
+<pre>
+server {
+  server_name yourdomainorip.com;
+
+  access_log off;
+
+  location /static/ {
+    alias /var/www/project_name/static/;
+  }
+
+  location / {
+    proxy_pass http://127.0.0.1:8001;
+    proxy_set_header X-Forwarded-Host $server_name;
+    proxy_set_header X-Real-IP $remote_addr;
+    add_header P3P 'CP="ALL DSP COR PSAa PSDa OUR NOR ONL UNI COM NAV"';
+  }
+}
+</pre>
+This does two things:
+<ol>
+  <li>Serves the static files folder</li>
+  <li>Forwards requests to Gunicorn</li>
+</ol>
+Now, we need to create a symbolic link to the above file:
+<pre>
+cd /etc/nginx/sites-enabled
+sudo ln -s ../sites-available/project_name
+</pre>
+You may also want to remove the default configuration in this directory.  Restart NGinx with <code>sudo service nginx restart</code>
+The site should now work, so long as your Gunicorn server is running.
+
+<h2>Automate Gunicorn with Supervisor</h2>
+<p class="indent">
+We obviously don't want to have to manually start the Gunicorn server all the time, so we're going to automate it using supervisor. First, install supervisor:
+</p>
+<pre>sudo apt-get install supervisor</pre>
+Let's create a start script for gunicorn at <code>/opt/env/myvenv/gunicorn_start</code>:
+<pre>
+#!/bin/bash
+
+#activate the virtual environment
+source /opt/env/myvenv/bin/activate
+#launch gunicorn
+/opt/env/myvenv/bin/gunicorn -c /opt/env/myvenv/gunicorn_config.py mysite.wsgi
+</pre>
+After gunicorn_start is saved, make it executable using your preferred method. To get it working, you can run <code>chmod +x gunicorn_start</code>, but you should consider more strict permissions for production servers.
+Then, create a new file at <code>/etc/supervisor/conf.d/mysite.conf</code> with the following contents:
+<pre>
+[program:mysite]
+command=/opt/env/myvenv/gunicorn_start
+autostart=true
+autorestart=true
+</pre>
+Gunicorn should now start automatically, and your Django website should be live!
+
+<h2>Sources:</h2>
+<ul>
+  <li><a target="_blank" href="http://askubuntu.com/questions/488529/pyvenv-3-4-error-returned-non-zero-exit-status-1">http://askubuntu.com/questions/488529/pyvenv-3-4-error-returned-non-zero-exit-status-1</a></li>
+  <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-django-with-postgres-nginx-and-gunicorn">https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-django-with-postgres-nginx-and-gunicorn</a></li>
+  <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-manage-supervisor-on-ubuntu-and-debian-vps">https://www.digitalocean.com/community/tutorials/how-to-install-and-manage-supervisor-on-ubuntu-and-debian-vps</a></li>
+</ul>
+
+<p>
+If you have any suggestions or problems with this tutorial, please let me know by using some form of contact method which can be found on my home page.
+</p>
+</div>

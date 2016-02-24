@@ -25,6 +25,11 @@ def make_dirs():
         path = os.path.dirname(os.path.join(BUILD_DIR,page_map[page]['path']))
         if path not in directories:
             directories.append(path)
+    # get each directory blogs will be built to
+    for blog in blog_map.keys():
+        path = os.path.dirname(os.path.join(BUILD_DIR,blog_map[blog]['path']))
+        if path not in directories:
+            directories.append(path)
     # make each path if it does not exist
     for directory in directories:
         if not os.path.exists(directory):
@@ -68,8 +73,19 @@ def build_pages():
         f.close()
     # Build each blog post, and the Blog List
     for blog in blog_map.keys():
-
-        # Add the blog info to the blog list context
+        template = os.path.join(MUSTACHE_DIR, blog_map[blog]['template'])
+        path = os.path.join(BUILD_DIR, blog_map[blog]['path'])
+        context = blog_map[blog]['context']
+        # Read the contents of the blog
+        f = open(blog_map[blog]['content_file'])
+        content = f.read()
+        f.close()
+        #Render and write the file
+        context['content'] = content
+        output = r.render_path(template, context)
+        f = open(path, "w")
+        f.write(output.replace("\r\n", "\n"))
+        f.close()
         blog_list_context['posts'].append(blog_map[blog])
     # Render the blog list
     output = r.render_path(os.path.join(MUSTACHE_DIR,"layout.mustache"), blog_list_context)

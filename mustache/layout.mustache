@@ -43,8 +43,8 @@
     {{/css}}
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{RESOURCE_DIR}}/favicon.ico" type="image/x-icon"/>
-    <link rel="icon" href="{{RESOURCE_DIR}}/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{RESOURCE_DIR}}/custom/images/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="{{RESOURCE_DIR}}/custom/images/favicon.ico" type="image/x-icon"/>
 
     {{! Get title, description, and additional keywords from context }}
     <title>{{title}}</title>
@@ -90,6 +90,9 @@
     {{#blog_post}}
       {{>blog_post}}
     {{/blog_post}}
+    {{#error}}
+      {{>error}}
+    {{/error}}
     </div>
   </body>
 

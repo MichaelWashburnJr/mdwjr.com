@@ -1,0 +1,16 @@
+#blog-post {
+  position: relative;
+  margin-top: 50px;
+}
+
+body {
+  background: url(../images/clouds.jpg) center center no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#blog-post .panel {
+  background-color: rgba(255,255,255,.8);
+}

@@ -61,6 +61,21 @@ page_map = {
             ]
         }
     },
+    'error' : {
+        'template' : "layout.mustache",
+        'path' : os.path.join("error","index.html"),
+        'context' : {
+            'error' : True,
+            'RESOURCE_DIR' : RESOURCE_URL,
+            'title' : "Error",
+            'description' : "",
+            'keywords' : "",
+            'css' : [
+            ],
+            'scripts' : [
+            ]
+        }
+    }
 }
 
 blog_list_context = {
@@ -91,26 +106,7 @@ blog_map = {
             'date' : "April 7, 2015",
             'content' : "",
             'css' : [
-            ],
-            'scripts' : [
-            ]
-        }
-    },
-    'blog_django-server-setup2' : {
-        'template' : "layout.mustache",
-        'path' : os.path.join("blog","django-server-setup2","index.html"),
-        'url' : "/blog/django-server-setup/",
-        'content_file' : os.path.join(MUSTACHE_DIR, "blog_posts", "django-server-setup.html"),
-        'context' : {
-            'blog_post' : True,
-            'RESOURCE_DIR' : RESOURCE_URL,
-            'title' : "Django Server Setup",
-            'description' : "A tutorial for setting up a Django server on Ubuntu using NGINX, \
-                             PostgreSQL, and Gunicorn.",
-            'keywords' : "turorial, django, nginx, postgres, ubuntu, linux ",
-            'date' : "April 7, 2015",
-            'content' : "",
-            'css' : [
+                {'file' : RESOURCE_URL + "/custom/css/blog_posts.css"}
             ],
             'scripts' : [
             ]
