@@ -44,6 +44,10 @@ body {
 /* Row with content, adds standard padding and borders */
 .mdw-content-row {
   border-top: 10px solid #adadad;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 /* Title/Subtitle styles */
@@ -90,3 +94,15 @@ body {
   max-width: 550px;
   font-size: 20px;
 }
+
+
+/*
+ * Smaller Screens
+ */
+ @media (max-width: 768px) {
+
+   .mdw-feature-text-group {
+     margin-left: 0px;
+   }
+
+ }
