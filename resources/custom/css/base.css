@@ -13,19 +13,20 @@ body {
 }
 
 .btn {
-  -webkit-transition: background-color 1s linear;
-  -moz-transition: background-color 1s linear;
-  -o-transition: background-color 1s linear;
-  -ms-transition: background-color 1s linear;
-  transition: background-color 1s linear;
+  border-radius: 0;
+  -webkit-transition: background-color 0.25s linear;
+  -moz-transition: background-color 0.25s linear;
+  -o-transition: background-color 0.25s linear;
+  -ms-transition: background-color 0.25s linear;
+  transition: background-color 0.25s linear;
 }
 
 .btn:hover {
-  -webkit-transition: background-color 1s linear;
-  -moz-transition: background-color 1s linear;
-  -o-transition: background-color 1s linear;
-  -ms-transition: background-color 1s linear;
-  transition: background-color 1s linear;
+  -webkit-transition: background-color 0.25s linear;
+  -moz-transition: background-color 0.25s linear;
+  -o-transition: background-color 0.25s linear;
+  -ms-transition: background-color 0.25s linear;
+  transition: background-color 0.25s linear;
 }
 
 .btn-default:hover {

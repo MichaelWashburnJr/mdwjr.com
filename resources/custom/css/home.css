@@ -103,7 +103,7 @@
   padding-top: 100px;
   padding-bottom: 100px;
   margin: auto;
-  background: url(../images/mountains.jpg) center center no-repeat fixed;
+  background: url(../images/mountains.jpg) center top no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
